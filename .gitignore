@@ -1,0 +1,7 @@
+*~
+*.swp
+*.tfplan
+.terraform
+.vscode
+test.sh
+**/helm/output
