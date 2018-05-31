@@ -44,10 +44,11 @@ Plug 'junegunn/vim-peekaboo'
 Plug 't9md/vim-choosewin'
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
+Plug 'dkprice/vim-easygrep'
 call plug#end()
 
+" Plug 'fielding/vim-chunkwm-navigator'
 " Plug 'zhou13/vim-easyescape'
-" Plug 'dkprice/vim-easygrep'
 " Plug 'junegunn/vim-plug'
 " Plug 'haya14busa/vim-asterisk'
 " Plug 'junegunn/vim-easy-align'

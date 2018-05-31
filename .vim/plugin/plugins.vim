@@ -3,7 +3,7 @@ let g:airline_theme='minimalist'
 
 
 " NERDTree
-let g:NERDTreeMinimalUI = 1
+" let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 25
 " let g:NERDTreeCascadeOpenSingleChildDir = 1
 " let g:NERDTreeCascadeSingleChildDir = 0

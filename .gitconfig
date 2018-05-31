@@ -33,7 +33,10 @@
 	remotes = remote -v
 	stashes = stash list
 	branches = !git --no-pager branch --list
-	delremotebranch = push origin --delete 
+    delremotebranch = push origin --delete 
+    delremotetag = push --delete origin
+    deltag = tag --delete
+    pushtag = push origin --tags
     sh = add -p
     discard = checkout -p
     psh = push -u

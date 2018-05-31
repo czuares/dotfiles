@@ -7,16 +7,16 @@ export EDITOR="vim"
 export CLICOLOR=1
 export PROJECT_HOME="$HOME/proj"
 
-zplug "zplug/zplug"
+# zplug "zplug/zplug"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zdharma/history-search-multi-word"
 zplug "plugins/git",  from:oh-my-zsh
 zplug "plugins/virtualenvwrapper",  from:oh-my-zsh
-zplug "unixorn/git-extra-commands"
-zplug "unixorn/warhol.plugin.zsh"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
+# zplug "unixorn/git-extra-commands"
+# zplug "unixorn/warhol.plugin.zsh"
 # zplug "plugins/common-aliases",  from:oh-my-zsh
 # zplug "plugins/gpg-agent",  from:oh-my-zsh
 # zplug "plugins/ssh-agent",  from:oh-my-zsh
@@ -48,9 +48,9 @@ zplug load
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
 bindkey '^ ' autosuggest-accept
 
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-zstyle ':zplug:tag' depth 1
+# zstyle ':completion:*' menu select
+# zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+# zstyle ':zplug:tag' depth 1
 
 # POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
@@ -79,7 +79,7 @@ zstyle ':zplug:tag' depth 1
 
 # Setup GPG
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
-eval $(keychain --eval --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
+eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
 
 ## ESC + v to edit command
 autoload edit-command-line
@@ -122,14 +122,15 @@ source <(stern --completion=zsh)
 source ~/.local/bin/aws_zsh_completer.sh
 
 # /usr/local/opt/go/libexec/bin:
-export PATH="/usr/local/sbin:$PATH" # make homebrew happy
-export PATH="/usr/X11/bin:$PATH"    # x11
-export PATH="$PATH:~/go/bin:~/bin:~/.local/bin" # custom
+# export PATH="/usr/local/sbin:$PATH" # make homebrew happy
+# export PATH="/usr/X11/bin:$PATH"    # x11
+export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/.local/bin" # custom
 # fpath=(/usr/local/share/zsh-completions $fpath)
 
 # . virtualenvwrapper.sh
 . /usr/local/etc/profile.d/z.sh
 . ~/.aws_aliases
+. ~/.zsh/functions.sh
 
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
@@ -137,49 +138,6 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     chtf 0.10.8
 fi
 
-function make-venv() {
-    : ${1?Project name is required}
-    mkvirtualenv -p python3.6 -a ~/proj/$1 $1
-}
-
-function update-salt-users-state() {
-    if [[ ${VIRTUAL_ENV##*/} != "sysalt" ]]; then
-        echo "Not in sysalt venv"
-        return 1
-    fi
-    : ${1?Target is required}
-    salt-ssh -i $1 state.sls syapse-users "${@:2}"
-}
-
-function ssh-circleci() {
-    : ${1?Expected parameters <port> <host>}
-    ssh -o "UserKnownHostsFile /dev/null" \
-        -o "StrictHostKeyChecking no" \
-        -o "LogLevel ERROR" -p "$@"
-}
-
-function dedupe-history() {
-    cp ~/.zsh_history{,-old}
-    tmpFile=`mktemp`
-    awk -F ";" '!seen[$2]++' ~/.zsh_history > $tmpFile
-    # echo $tmpFile
-    mv $tmpFile ~/.zsh_history
-}
-
-function git-set-upstream() {
-    local branch="$(git rev-parse --abbrev-ref HEAD)"
-    echo "Current branch $branch"
-    git branch --set-upstream-to=origin/$branch $branch
-}
-
-function okta-pass() {
-    lpass show -cp okta.com
-}
-
-function gh() {
-    : ${1?Expected repo name}
-    open "https://github.com/syapse/$1"
-}
 
 #### Powerline-go configuration
 function powerline_precmd() {

@@ -7,10 +7,6 @@ nmap <silent> <leader>w :wa!<cr>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" Make page up/down suck less
-nnoremap <PageUp> <C-u>
-nnoremap <PageDown> <C-d>
-
 " Useful mappings for managing tabs
 map <leader>nt :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -30,4 +26,9 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+" " Make page up/down suck less
+" nnoremap <PageUp> <C-u>
+" nnoremap <PageDown> <C-d>
+
 
