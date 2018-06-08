@@ -7,7 +7,7 @@ export EDITOR="vim"
 export CLICOLOR=1
 export PROJECT_HOME="$HOME/proj"
 
-# zplug "zplug/zplug"
+zplug "zplug/zplug"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zdharma/history-search-multi-word"
@@ -27,6 +27,12 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # zplug "plugins/helm",  from:oh-my-zsh
 # zplug "plugins/kubectl",  from:oh-my-zsh
 # zplug "plugins/python",  from:oh-my-zsh
+
+# export USE_NERD_FONT=1
+# zplug "eendroroy/alien", from:github, as:theme
+
+# zplug "mafredri/zsh-async", from:github
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
@@ -147,6 +153,21 @@ function powerline_precmd() {
         -newline \
         -shell zsh \
         -error $? -shell zsh)"
+
+    local k8scontext="$(kubectl config current-context)"
+    if [[ -n "$TMUX" ]]; then
+        if [[ "$k8scontext" == "prod" ]]; then
+            tmux select-pane -P 'bg=#990808'
+        else
+            tmux select-pane -P 'bg=default'
+        fi
+    else
+        if [[ "$k8scontext" == "prod" ]]; then
+            echo -ne "\033]50;SetProfile=ProdK8s\a"
+        else
+            echo -ne "\033]50;SetProfile=Default\a"
+        fi
+    fi
 }
 
 function install_powerline_precmd() {

@@ -14,6 +14,13 @@ function update-salt-users-state() {
     salt-ssh -i $1 state.sls syapse-users "${@:2}"
 }
 
+function ssh-opkins-agent() {
+    : ${1?Expected parameters <host>}
+    ssh -o "UserKnownHostsFile /dev/null" \
+        -o "StrictHostKeyChecking no" \
+        -o "LogLevel ERROR" "syops@$1"
+}
+
 function ssh-circleci() {
     : ${1?Expected parameters <port> <host>}
     ssh -o "UserKnownHostsFile /dev/null" \
