@@ -1,0 +1,15 @@
+priority 10
+
+snippet #!
+`!p snip.rv = '#!/usr/bin/env bash\n\n'`
+endsnippet
+
+snippet prompt
+read -p "${1:Are you sure?}" -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+	#shellcheck disable=SC2128
+	[[ "\$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+fi
+`!p snip.rv ='\n'`
+endsnippet
