@@ -28,8 +28,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # zplug "plugins/kubectl",  from:oh-my-zsh
 # zplug "plugins/python",  from:oh-my-zsh
 
-export USE_NERD_FONT=1
-zplug "eendroroy/alien", from:github, as:theme
+# export USE_NERD_FONT=1
+# zplug "eendroroy/alien", from:github, as:theme
 
 # zplug "mafredri/zsh-async", from:github
 # zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
@@ -167,6 +167,6 @@ function install_powerline_precmd() {
     precmd_functions+=(powerline_precmd)
 }
 
-# if [ "$TERM" != "linux" ]; then
-#     install_powerline_precmd
-# fi
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
