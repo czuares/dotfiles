@@ -142,8 +142,8 @@ function powerline_precmd() {
         -shell zsh \
         -error $? -shell zsh)"
 
-    local k8scontext="$(kubectl config current-context)"
-    if [[ -n "$TMUX" ]]; then
+    local k8scontext="$(kubectl config current-context 2>/dev/null)"
+    if [[ $? == 0 ]] && [[ -n "$TMUX" ]]; then
         if [[ "$k8scontext" == "prod" ]]; then
             tmux select-pane -P 'bg=#990808'
         else
