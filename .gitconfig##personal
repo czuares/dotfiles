@@ -1,0 +1,33 @@
+[alias]
+    a = add
+    d = difftool
+    lp = log -p
+    it = fetch --all
+    co = checkout
+    cob = checkout -b
+    s = status
+    bra = branch -a
+    staged = diff --cached
+    cm = commit
+    remotes = remote -v
+    stashes = stash list
+    branches = !git --no-pager branch --list
+    amend = commit --amend
+    fixup = commit --fixup HEAD
+    yolo = push --force-with-lease
+[core]
+       autocrlf = input
+       excludesfile = /Users/czuares/.gitignore
+[user]
+       name = Corey Z
+       email = corey@intangibleobject.com
+[difftool "sourcetree"]
+       cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+       path =
+[mergetool "sourcetree"]
+       cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+       trustExitCode = true
+[push]
+       default = current
+[color]
+       ui = auto

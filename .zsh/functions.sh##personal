@@ -1,0 +1,4 @@
+function pf-usb(){
+   # screen /dev/tty.usbserial 115200 # apu
+   screen /dev/tty.SLAB_USBtoUART 115200 # netgate
+ }

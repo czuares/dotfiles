@@ -28,8 +28,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # zplug "plugins/kubectl",  from:oh-my-zsh
 # zplug "plugins/python",  from:oh-my-zsh
 
-# export USE_NERD_FONT=1
-# zplug "eendroroy/alien", from:github, as:theme
+export USE_NERD_FONT=1
+zplug "eendroroy/alien", from:github, as:theme
 
 # zplug "mafredri/zsh-async", from:github
 # zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
@@ -83,10 +83,6 @@ bindkey '^ ' autosuggest-accept
 # aws
 # )
 
-# Setup GPG
-export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
-eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
-
 ## ESC + v to edit command
 autoload edit-command-line
 zle -N edit-command-line
@@ -135,15 +131,7 @@ export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/.local/bin" # custom
 
 # . virtualenvwrapper.sh
 . /usr/local/etc/profile.d/z.sh
-. ~/.aws_aliases
 . ~/.zsh/functions.sh
-
-# Source chtf
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-    source "/usr/local/share/chtf/chtf.sh"
-    chtf 0.10.8
-fi
-
 
 #### Powerline-go configuration
 function powerline_precmd() {
@@ -179,6 +167,6 @@ function install_powerline_precmd() {
     precmd_functions+=(powerline_precmd)
 }
 
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
+# if [ "$TERM" != "linux" ]; then
+#     install_powerline_precmd
+# fi

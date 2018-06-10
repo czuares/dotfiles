@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+# Source custom files
+. ~/.aws_aliases
+
+# Setup GPG
+export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
+eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
+
+# Source chtf
+if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+    source "/usr/local/share/chtf/chtf.sh"
+    chtf 0.10.8
+fi
+
 function make-venv() {
     : ${1?Project name is required}
     mkvirtualenv -p python3.6 -a ~/proj/$1 $1
