@@ -1,3 +1,9 @@
+[commit]
+	gpgsign = True
+[user]
+	signingkey = E884930C398F7BC7
+	name = Corey Zuares
+	email = czuares@gmail.com
 [alias]
     a = add
     d = difftool
@@ -18,15 +24,6 @@
 [core]
        autocrlf = input
        excludesfile = /Users/czuares/.gitignore
-[user]
-       name = Corey Z
-       email = corey@intangibleobject.com
-[difftool "sourcetree"]
-       cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-       path =
-[mergetool "sourcetree"]
-       cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-       trustExitCode = true
 [push]
        default = current
 [color]
