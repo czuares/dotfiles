@@ -4,4 +4,4 @@
 # be run from within $HOME (assuming this is the root of your dotfiles)
 cd "$HOME"
 
-go get -u github.com/justjanne/powerline-go
+brew bundle install

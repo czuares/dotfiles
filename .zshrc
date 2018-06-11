@@ -38,6 +38,3 @@ source /usr/local/etc/profile.d/z.sh
 
 source ~/.zsh/functions.sh
 source ~/.zsh/env.zsh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
