@@ -1,3 +1,9 @@
+#!/usr/bin/env bash
+
+# Setup GPG
+export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
+eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x11BFC2D2BD6087B6)
+
 function pf-usb(){
    # screen /dev/tty.usbserial 115200 # apu
    screen /dev/tty.SLAB_USBtoUART 115200 # netgate
