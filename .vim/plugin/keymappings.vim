@@ -27,8 +27,5 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" " Make page up/down suck less
-" nnoremap <PageUp> <C-u>
-" nnoremap <PageDown> <C-d>
-
-
+" Reformat file
+map <leader>gg gg=G''

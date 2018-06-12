@@ -1,7 +1,27 @@
 #!/bin/bash
 
-# Because Git submodule commands cannot operate without a work tree, they must
-# be run from within $HOME (assuming this is the root of your dotfiles)
-cd "$HOME"
+system_type=$(uname -s)
 
-brew bundle install
+if [[ "$system_type" == "Darwin" ]]; then
+
+  # install homebrew if it's missing
+  if ! command -v brew >/dev/null 2>&1; then
+      echo "Installing homebrew"
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  if [ -f "$HOME/.Brewfile" ]; then
+      echo "Updating homebrew bundle"
+      brew bundle --global
+  fi
+
+  if [ -d "$HOME/.iterm2" ]; then
+      echo "Setting iTerm preference folder"
+      defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+  fi
+
+  if command -v vim >/dev/null 2>&1; then
+      echo "Bootstraping Vim"
+      vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  fi
+fi

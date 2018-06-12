@@ -5,6 +5,7 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "zplug/zplug"
+zplug "mafredri/zsh-async", from:github
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zdharma/history-search-multi-word"
@@ -31,6 +32,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # zplug "mafredri/zsh-async", from:github
 # zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
+# zplug "geometry-zsh/geometry", from:github, as:theme
+
 # zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 # setopt prompt_subst # Make sure prompt is able to be generated properly.
@@ -49,6 +52,11 @@ fi
 zplug load
 
 source ~/.zsh/powerline-go.zsh
+
+# GEOMETRY_PROMPT_PLUGINS=(virtualenv kube exec_time git)
+
+# Alien
+# MODULES=(git ssh python time)
 
 # POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)

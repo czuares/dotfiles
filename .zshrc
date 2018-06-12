@@ -36,5 +36,7 @@ source <(stern --completion=zsh)
 source ~/.local/bin/aws_zsh_completer.sh
 source /usr/local/etc/profile.d/z.sh
 
+source ~/.zsh/k8scontext.zsh
+source ~/.zsh/functions-core.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/env.zsh
