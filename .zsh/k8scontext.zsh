@@ -20,7 +20,11 @@ function k8s_color() {
                 color="default"
                 ;;
         esac
-        tmux select-pane -P "bg=$color"
+
+        local activePanes=($(tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}'))
+        for p in "${activePanes[@]}"; do
+            tmux select-pane -P "bg=$color" -t "$p"
+        done
     fi
 
     if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
