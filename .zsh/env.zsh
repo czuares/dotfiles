@@ -15,6 +15,7 @@ export PROJECT_HOME="$HOME/proj"
 export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/.local/bin" # custom
 # fpath=(/usr/local/share/zsh-completions $fpath)
 
+alias rm=trash
 alias vi=vim
 alias d=docker
 alias dc=docker-compose
@@ -28,5 +29,3 @@ alias proj="cd $PROJECT_HOME"
 
 alias ls='LC_COLLATE=C ls'
 alias ll='ls -lAh'
-
-

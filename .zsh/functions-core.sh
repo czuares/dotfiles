@@ -13,6 +13,6 @@ function brew() {
 
     if $dump; then
         echo "Updating Brewfile"
-        command brew bundle dump --force
+        command brew bundle dump --force --file="$HOME/Brewfile"
     fi
 }
