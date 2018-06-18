@@ -10,7 +10,7 @@ eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
-    chtf 0.10.8
+    chtf 0.11.7
 fi
 
 function make-venv() {
