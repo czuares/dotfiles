@@ -45,6 +45,8 @@ Plug 't9md/vim-choosewin'
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'dkprice/vim-easygrep'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'cwood/ultisnips-terraform-snippets'
 call plug#end()
 
 " Plug 'fielding/vim-chunkwm-navigator'

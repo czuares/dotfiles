@@ -7,6 +7,15 @@ function brew() {
             *install)
                 dump=true;
                 ;;
+            cask)
+                if [[ $# -gt 2 ]]; then
+                    case "$2" in
+                        *install)
+                            dump=true;
+                            ;;
+                    esac
+                fi
+                ;;
         esac
     fi
     command brew "$@"
