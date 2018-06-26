@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+mkdir -p /Volumes/CZ/WorkHome
+
+rsync -avzh --progress \
+    --delete --size-only \
+    --exclude=Library \
+    --exclude="VirtualBox VMs" \
+    --exclude=.atom \
+    --exclude=.helm \
+    --exclude=.terraform \
+    --exclude=.virtualenvs \
+    --exclude=.vscode \
+    ~/ /Volumes/CZ/WorkHome

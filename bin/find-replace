@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -uo pipefail
+IFS=$'\n\t'
+
+: "${1?Search term expected!}"
+: "${2?Replacement term expected!}"
+
+SEARCH_TERM="$1"
+REPLACE_TERM="$2"
+
+function main() {
+    local found
+    # found=$(grep -Ilr --exclude-dir=.terraform "$SEARCH_TERM" .)
+    git grep "$SEARCH_TERM" 
+    if [[ $? == 1 ]]; then
+        grep -ir "$SEARCH_TERM"
+        found=$(grep -ilr "$SEARCH_TERM")
+    else
+        found=$(git grep -l "$SEARCH_TERM")
+    fi
+
+    # echo "$found"
+
+    read -p "Proceed replacing '$SEARCH_TERM' with '$REPLACE_TERM'?" -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        #shellcheck disable=SC2128
+        [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+    fi
+    echo "$found" | xargs -I@ sed -i '' "s/$SEARCH_TERM/$REPLACE_TERM/g" @
+}
+
+main "$@"
