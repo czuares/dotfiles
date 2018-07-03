@@ -88,3 +88,28 @@ function create-ssh-user() {
     ./scripts/add-user-to-bastion.sh "$user"
 
 }
+
+function kpod() {
+    : "${1?Expected app name}"
+    local name="$1"
+
+    kubectl get pod \
+        -l app="$name" \
+        --no-headers \
+        -o custom-columns=:metadata.name | head -n 1
+}
+
+function kexec() {
+    : "${1?Expected app name}"
+    : "${2?Expected command}"
+    local name="$1"
+
+    kubectl exec -it "$(kpod "$name")" "${@:2}"
+}
+
+function klog () {
+    : "${1?Expected app name}"
+    local name="$1"
+
+    kubectl logs -f "$(kpod "$name")"
+}

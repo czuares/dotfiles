@@ -25,3 +25,7 @@ function brew() {
         command brew bundle dump --force --file="$HOME/Brewfile"
     fi
 }
+
+function hist() {
+    vim ~/.zsh_history
+}

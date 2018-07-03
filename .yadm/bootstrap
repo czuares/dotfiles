@@ -13,6 +13,7 @@ if [[ "$system_type" == "Darwin" ]]; then
   if [ -f "$HOME/.Brewfile" ]; then
       echo "Updating homebrew bundle"
       brew bundle --global
+      brew link --force gettext
   fi
 
   if [ -d "$HOME/.config/iterm2" ]; then
