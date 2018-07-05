@@ -5,6 +5,8 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "zplug/zplug"
+zplug "plugins/z",  from:oh-my-zsh
+zplug "plugins/aws",  from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
@@ -18,8 +20,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # zplug "plugins/common-aliases",  from:oh-my-zsh
 # zplug "plugins/gpg-agent",  from:oh-my-zsh
 # zplug "plugins/ssh-agent",  from:oh-my-zsh
-# zplug "plugins/z",  from:oh-my-zsh
-# zplug "plugins/aws",  from:oh-my-zsh
 # zplug "zsh-users/zsh-history-substring-search"
 # zplug "plugins/docker",  from:oh-my-zsh
 # zplug "plugins/helm",  from:oh-my-zsh

@@ -84,9 +84,12 @@ function create-ssh-user() {
     fi
 
     mv "$key" "$keypath"
-    workon sysalt
-    ./scripts/add-user-to-bastion.sh "$user"
 
+    if [[ ${VIRTUAL_ENV##*/} != "sysalt" ]]; then
+        workon sysalt
+    fi
+    ./scripts/add-user-to-bastion.sh "$user"
+    # salt-ssh saws1-uw1c-prod-cs state.sls syapse-saws
 }
 
 function kpod() {

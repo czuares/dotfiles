@@ -15,6 +15,7 @@ function main() {
 
     jobname="${SERVICE}-util-job"
     envsubst < ~/bin/util-job.yaml | kubectl apply -f -
+    sleep 3 
 
     local pod
     pod=$(kubectl get pod -l job-name="$jobname" --no-headers -o custom-columns=:metadata.name | head -n 1)

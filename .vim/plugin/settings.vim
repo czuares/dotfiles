@@ -48,3 +48,8 @@ autocmd BufEnter * if &filetype == "" | setlocal filetype=detect | endif
 
 " " change dir to opened buffer
 " autocmd BufEnter * silent! lcd %:p:h
+
+" https://github.com/vim/vim/issues/3117
+if has('python3')
+  silent! python3 1
+endif

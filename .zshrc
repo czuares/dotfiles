@@ -33,8 +33,8 @@ setopt hist_verify
 # source virtualenvwrapper.sh
 source <(kubectl completion zsh)
 source <(stern --completion=zsh)
-source ~/.local/bin/aws_zsh_completer.sh
-source /usr/local/etc/profile.d/z.sh
+# source ~/.local/bin/aws_zsh_completer.sh
+# source /usr/local/etc/profile.d/z.sh
 
 source ~/.zsh/k8scontext.zsh
 source ~/.zsh/functions-core.sh
