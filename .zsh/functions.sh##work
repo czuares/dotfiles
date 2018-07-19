@@ -3,6 +3,10 @@
 # Source custom files
 . ~/.aws_aliases
 
+okta-token() { 
+    oathtool --totp -b "$(<~/.oath-okta)" | pbcopy
+}
+
 # Setup GPG
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
 eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
@@ -43,7 +47,7 @@ function ssh-circleci() {
 
 function dedupe-history() {
     cp ~/.zsh_history{,-old}
-    tmpFile=`mktemp`
+    tmpFile=$(mktemp)
     awk -F ";" '!seen[$2]++' ~/.zsh_history > $tmpFile
     # echo $tmpFile
     mv $tmpFile ~/.zsh_history
@@ -60,8 +64,15 @@ function okta-pass() {
 }
 
 function gh() {
-    : ${1?Expected repo name}
-    open "https://github.com/syapse/$1"
+    local repo
+    if [[ $# -eq 1 ]]; then
+        repo="$1"
+    else
+        local dir
+        dir=$(git rev-parse --show-toplevel)
+        repo="${dir##*/}"
+    fi
+    open "https://github.com/syapse/$repo"
 }
 
 function create-ssh-user() {

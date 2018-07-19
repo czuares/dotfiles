@@ -7,3 +7,4 @@
 .vscode
 test.sh
 **/helm/output
+*.*.bak

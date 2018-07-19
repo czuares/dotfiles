@@ -38,7 +38,6 @@ Plug 'honza/vim-snippets'
 Plug 'andrewradev/linediff.vim'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'mattesgroeger/vim-bookmarks'
-Plug 'mhinz/vim-startify'
 Plug 'rhysd/committia.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 't9md/vim-choosewin'
@@ -47,6 +46,7 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'dkprice/vim-easygrep'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'cwood/ultisnips-terraform-snippets'
+Plug 'andymass/vim-tradewinds'
 call plug#end()
 
 " Plug 'fielding/vim-chunkwm-navigator'
@@ -91,3 +91,4 @@ call plug#end()
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-session'
 " Plug 'yuttie/comfortable-motion.vim'
+" Plug 'mhinz/vim-startify'

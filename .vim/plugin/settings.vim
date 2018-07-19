@@ -46,6 +46,9 @@ autocmd! bufwritepost .vimrc source %
 " Autodetect new file type
 autocmd BufEnter * if &filetype == "" | setlocal filetype=detect | endif
 
+" Set spell for markdown
+autocmd FileType markdown setlocal spell
+
 " " change dir to opened buffer
 " autocmd BufEnter * silent! lcd %:p:h
 

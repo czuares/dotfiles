@@ -28,4 +28,10 @@ function brew() {
 
 function hist() {
     vim ~/.zsh_history
+    # if [[ $# -gt 0 ]]; then
+    #     local hist_file=$HOME/.zsh_history
+    #     cp "$hist_file"{,bak}
+    #     sed -i '' -e '$ d' "$hist_file"
+    #     return 0
+    # fi
 }

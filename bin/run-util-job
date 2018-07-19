@@ -2,7 +2,7 @@
 set -euo pipefail
 declare jobname
 
-trap cleanup EXIT
+# trap cleanup EXIT
 
 function cleanup() {
     kubectl delete job "$jobname"
