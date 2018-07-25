@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 set -euo pipefail
 declare jobname
 
@@ -21,6 +22,8 @@ function main() {
     pod=$(kubectl get pod -l job-name="$jobname" --no-headers -o custom-columns=:metadata.name | head -n 1)
 
     kubectl exec -it "$pod" "${@:2}"
+
+    # kubectl delete job "$jobname"
 }
 
 main "$@"

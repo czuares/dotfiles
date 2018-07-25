@@ -100,7 +100,7 @@ function create-ssh-user() {
         workon sysalt
     fi
     ./scripts/add-user-to-bastion.sh "$user"
-    # salt-ssh saws1-uw1c-prod-cs state.sls syapse-saws
+    salt-ssh saws1-uw1c-prod-cs state.sls syapse-saws
 }
 
 function kpod() {
