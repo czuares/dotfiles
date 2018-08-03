@@ -1,38 +1,38 @@
 [commit]
-	gpgsign = True
+    gpgSign = true
 [user]
-	signingkey = 97756AE7B8A4FDA9
-	name = Corey Zuares
-	email = corey.zuares@syapse.com
+    signingkey = 97756AE7B8A4FDA9
+    name = Corey Zuares
+    email = corey.zuares@syapse.com
 [alias]
     a = add
-	c = commit
+    c = commit
     p = pull
     l = log
-	d = difftool
+    d = difftool
     lp = log -p
-	it = fetch --all
-	co = checkout
-	cob = checkout -b
+    it = fetch --all
+    co = checkout
+    cob = checkout -b
     s = status
-	b = branch
+    b = branch
     bra = branch -a
-	staged = diff --cached
+    staged = diff --cached
     cm = commit
     amend = commit --amend
     fixup = commit --fixup HEAD
-	yolo = push --force-with-lease
-	prb = pull --rebase
+    yolo = push --force-with-lease
+    prb = pull --rebase
     ready = rebase -i @{u}
-	rb = rebase
-	rbc = rebase --continue
-	rba = rebase --abort
-	rbs = rebase --skip
-	m = merge
-	ma = merge --abort
-	remotes = remote -v
-	stashes = stash list
-	branches = !git --no-pager branch --list
+    rb = rebase
+    rbc = rebase --continue
+    rba = rebase --abort
+    rbs = rebase --skip
+    m = merge
+    ma = merge --abort
+    remotes = remote -v
+    stashes = stash list
+    branches = !git --no-pager branch --list
     delremotebranch = push origin --delete 
     delremotetag = push --delete origin
     deltag = tag --delete
@@ -45,16 +45,18 @@
     again = !git a . && git fixup && git push
     quick-fix = !git a . && git amend && git yolo
 [diff "sopsdiffer"]
-	textconv = sops -d
+    textconv = sops -d
 [push]
-	default = current
+    default = current
 [core]
-	excludesfile = /Users/czuares/.gitignore
+    excludesfile = /Users/czuares/.gitignore
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
 [init]
-	templatedir = ~/.git-templates
+    templatedir = ~/.git-templates
 [gpg]
-	program = gpg
+    program = gpg
+[tag]
+    forceSignAnnotated = true

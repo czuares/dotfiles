@@ -8,12 +8,12 @@ zplug "zplug/zplug"
 zplug "plugins/z",  from:oh-my-zsh
 zplug "plugins/aws",  from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
-zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-autosuggestions", at:develop
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "zsh-users/zsh-completions"
 zplug "zdharma/history-search-multi-word"
 zplug "plugins/git",  from:oh-my-zsh
-zplug "plugins/virtualenvwrapper",  from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
+# zplug "plugins/virtualenvwrapper",  from:oh-my-zsh
 
 # zplug "unixorn/git-extra-commands"
 # zplug "unixorn/warhol.plugin.zsh"

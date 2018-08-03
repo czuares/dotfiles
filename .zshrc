@@ -27,10 +27,11 @@ setopt extended_history
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_verify
+# setopt hist_ignore_all_dups
 # setopt hist_ignore_dups 
 # setopt hist_no_store
 
-# source virtualenvwrapper.sh
+source virtualenvwrapper.sh
 source <(kubectl completion zsh)
 source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh

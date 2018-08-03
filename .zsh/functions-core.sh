@@ -4,7 +4,7 @@ function brew() {
     local dump=false;
     if [[ $# -gt 0 ]]; then
         case "$1" in
-            *install)
+            *install|*tap)
                 dump=true;
                 ;;
             cask)

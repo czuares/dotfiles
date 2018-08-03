@@ -48,6 +48,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'cwood/ultisnips-terraform-snippets'
 Plug 'saltstack/salt-vim'
 Plug 'stephpy/vim-yaml'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 " Plug 'andymass/vim-tradewinds'
