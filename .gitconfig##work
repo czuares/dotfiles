@@ -25,6 +25,7 @@
     prb = pull --rebase
     ready = rebase -i @{u}
     rb = rebase
+    rbm = rebase origin/master
     rbc = rebase --continue
     rba = rebase --abort
     rbs = rebase --skip
@@ -44,6 +45,7 @@
     al = !pushd $(git rev-parse --show-toplevel) && git add . && popd
     again = !git a . && git fixup && git push
     quick-fix = !git a . && git amend && git yolo
+    refresh = !git stash && git fetch && git rbm && git stash pop
 [diff "sopsdiffer"]
     textconv = sops -d
 [push]

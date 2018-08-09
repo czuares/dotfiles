@@ -49,6 +49,7 @@ Plug 'cwood/ultisnips-terraform-snippets'
 Plug 'saltstack/salt-vim'
 Plug 'stephpy/vim-yaml'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'prakashdanish/vim-githubinator'
 call plug#end()
 
 " Plug 'andymass/vim-tradewinds'
