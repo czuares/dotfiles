@@ -8,9 +8,12 @@ rsync -avzh --progress \
     --delete --size-only \
     --exclude=Library \
     --exclude="VirtualBox VMs" \
+    --exclude=.local/venvs \
     --exclude=.atom \
+    --exclude=.npm \
     --exclude=.helm \
     --exclude=.terraform \
     --exclude=.virtualenvs \
     --exclude=.vscode \
+    --exclude=.Trash \
     ~/ /Volumes/CZ/WorkHome

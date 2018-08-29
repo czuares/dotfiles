@@ -29,3 +29,9 @@ alias proj="cd $PROJECT_HOME"
 
 alias ls='LC_COLLATE=C ls'
 alias ll='ls -lAh'
+alias cat='bat'
+alias du="ncdu --color dark -rr -x --exclude .git"
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias help='tldr'
+alias ping='prettyping --nolegend'
+

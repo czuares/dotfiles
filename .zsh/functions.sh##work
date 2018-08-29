@@ -3,7 +3,7 @@
 # Source custom files
 . ~/.aws_aliases
 
-okta-token() { 
+function okta-token() { 
     oathtool --totp -b "$(<~/.oath-okta)" | pbcopy
 }
 
@@ -112,7 +112,7 @@ function kpod() {
         -l app="$name" \
         --no-headers \
         -o custom-columns=:metadata.name | head -n 1
-}
+    }
 
 function kexec() {
     : "${1?Expected app name}"
@@ -127,4 +127,15 @@ function klog () {
     local name="$1"
 
     kubectl logs -f "$(kpod "$name")"
+}
+
+function tf-release() {
+    : "${1?Expected tag}"
+    local tag="$1"
+    source "$HOME/node/bin/activate"
+    GREN_GITHUB_TOKEN=$(<~/.github_token)
+    export GREN_GITHUB_TOKEN
+    ~/proj/docker-terraform/scripts/tf-release "$tag" "$tag"
+    unset GREN_GITHUB_TOKEN
+    deactivate_node
 }

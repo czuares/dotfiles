@@ -37,7 +37,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 
 " CtrlP
-let g:ctrlp_cmd = 'CtrlPBuffer'
+" let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
@@ -89,3 +89,5 @@ cnoremap kj <ESC>
 " let g:airline#extensions#clock#format = '%I:%M %p'
 " let g:airline#extensions#clock#updatetime = 60000
 
+" Rainbow
+let g:rainbow_active = 1

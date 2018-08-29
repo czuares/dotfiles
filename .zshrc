@@ -41,3 +41,5 @@ source ~/.zsh/k8scontext.zsh
 source ~/.zsh/functions-core.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/env.zsh
+
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

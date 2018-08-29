@@ -21,7 +21,7 @@ function awsp() {
         export AWS_REGION=$(aws configure get region --profile "$1");
         export KOPS_STATE_STORE=s3://syapse-terraform/$AWS_PROFILE/kops
         aws-token
-        aws-mfa
+        aws-mfa --duration 43200
         pbcopy < /dev/null
         echo "Switched to AWS Profile: $1";
     else

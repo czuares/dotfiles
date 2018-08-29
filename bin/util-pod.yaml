@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "${SERVICE}-util-pod"
+  labels:
+    app: "${SERVICE}-util-pod" 
+  annotations:
+    iam.amazonaws.com/role: knowledgebase
+spec:
+  containers:
+    - name: "${SERVICE}"
+      image: "141380700111.dkr.ecr.us-west-2.amazonaws.com/${SERVICE}:latest"
+      imagePullPolicy: Always
+      securityContext:
+        runAsUser: 0
+      envFrom:
+      - configMapRef:
+          name: "${SERVICE}.env"
+      - secretRef:
+          name: "${SERVICE}.secrets"
+      command:
+        - cat
+      tty: true
+

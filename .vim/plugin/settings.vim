@@ -52,6 +52,9 @@ autocmd FileType markdown setlocal spell
 " " change dir to opened buffer
 " autocmd BufEnter * silent! lcd %:p:h
 
+" fzf (brew installed)
+set rtp+=/usr/local/opt/fzf
+
 " https://github.com/vim/vim/issues/3117
 if has('python3')
   silent! python3 1
