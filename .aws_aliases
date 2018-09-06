@@ -10,7 +10,8 @@ function awsp() {
         unset AWS_DEFAULT_PROFILE;
         unset AWS_PROFILE;
         unset AWS_REGION;
-        unset KOPS_STATE_STORE;
+        export KOPS_STATE_STORE="s3://syapse-terraform/prod/kops"
+        # unset KOPS_STATE_STORE;
         return 0
     fi
 
@@ -19,7 +20,8 @@ function awsp() {
         export AWS_DEFAULT_PROFILE=$1;
         export AWS_PROFILE=$1;
         export AWS_REGION=$(aws configure get region --profile "$1");
-        export KOPS_STATE_STORE=s3://syapse-terraform/$AWS_PROFILE/kops
+        export KOPS_STATE_STORE="s3://syapse-terraform/$AWS_PROFILE/kops"
+        k8s-auth "$1"
         aws-token
         aws-mfa --duration 43200
         pbcopy < /dev/null

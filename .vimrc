@@ -54,11 +54,11 @@ Plug 'luochen1990/rainbow'
 Plug 'junegunn/fzf'
 Plug 'RRethy/vim-illuminate'
 Plug 'gu-fan/simpleterm.vim'
+Plug 'dyng/ctrlsf.vim'
+call plug#end()
 
 " Plug 'thaerkh/vim-workspace'
 " Plug 'bagrat/vim-workspace'
-call plug#end()
-
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'andymass/vim-tradewinds'
 " Plug 'mhinz/vim-signify'

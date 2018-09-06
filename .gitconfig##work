@@ -47,7 +47,7 @@
     quick-fix = !git a . && git amend && git yolo
     refresh = !git stash && git fetch && git rbm && git stash pop
 [diff "sopsdiffer"]
-    textconv = sops -d
+	textconv = sops -d
 [push]
     default = current
 [core]

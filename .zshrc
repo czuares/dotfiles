@@ -42,4 +42,6 @@ source ~/.zsh/functions-core.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/env.zsh
 
+eval "$(pyenv init -)"
+
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
