@@ -55,7 +55,7 @@ brew "hub"
 brew "hugo"
 brew "jq"
 brew "keychain"
-brew "kubernetes-cli"
+brew "kubernetes-cli", link: false
 brew "kubectx"
 brew "kubeless"
 brew "lastpass-cli", args: ["with-pinentry"]
@@ -95,6 +95,7 @@ brew "tree"
 brew "vim", args: ["with-override-system-vi"]
 brew "watch"
 brew "wget"
+brew "xsv"
 brew "yadm"
 brew "yamllint"
 brew "ykpers"

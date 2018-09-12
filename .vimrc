@@ -57,6 +57,7 @@ Plug 'gu-fan/simpleterm.vim'
 Plug 'dyng/ctrlsf.vim'
 call plug#end()
 
+" Plug 'jeanCarloMachado/vim-toop'
 " Plug 'thaerkh/vim-workspace'
 " Plug 'bagrat/vim-workspace'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
