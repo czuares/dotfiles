@@ -1,19 +1,14 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-declare podname
 
-# trap cleanup EXIT
-
-function cleanup() {
-    kubectl delete job "$podname"
-}
 function main() {
     : "${1?Service name is required}"
     : "${2?Command is required}"
 
     export SERVICE="$1"
-
+    IMAGE="$(kubectl get deploy -l app="$SERVICE" -o jsonpath='{.items[0].spec.template.spec.containers[0].image}')"
+    export IMAGE 
     podname="${SERVICE}-util-pod"
     envsubst < ~/bin/util-pod.yaml | kubectl apply -f -
     sleep 10
@@ -23,7 +18,11 @@ function main() {
 
     kubectl exec -it "$pod" "${@:2}"
 
-    kubectl delete pod "$podname"
+    read -rp "Would you like to delete the pod [y/N]?"
+    echo
+    if [[ $REPLY =~ ^[Yy] ]]; then
+        kubectl delete pod "$podname"
+    fi
 }
 
 main "$@"

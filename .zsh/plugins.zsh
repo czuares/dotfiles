@@ -51,8 +51,6 @@ fi
 
 zplug load
 
-source ~/.zsh/powerline-go.zsh
-
 # GEOMETRY_PROMPT_PLUGINS=(virtualenv kube exec_time git)
 
 # Alien

@@ -3,10 +3,6 @@
 # Source custom files
 . ~/.aws_aliases
 
-function okta-token() { 
-    oathtool --totp -b "$(<~/.oath-okta)" | pbcopy
-}
-
 # Setup GPG
 export GPG_TTY=$(tty)
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
@@ -139,3 +135,8 @@ function tf-release() {
     unset GREN_GITHUB_TOKEN
     deactivate_node
 }
+
+function git-top() { 
+    cd "$(git rev-parse --show-toplevel)" || true
+}
+

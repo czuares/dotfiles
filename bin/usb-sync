@@ -8,6 +8,8 @@ rsync -avzh --progress \
     --delete --size-only \
     --exclude=Library \
     --exclude="VirtualBox VMs" \
+    --exclude=go/src \
+    --exclude=node \
     --exclude=.local/venvs \
     --exclude=.atom \
     --exclude=.npm \
@@ -16,4 +18,12 @@ rsync -avzh --progress \
     --exclude=.virtualenvs \
     --exclude=.vscode \
     --exclude=.Trash \
+    --exclude=.kube/cache \
+    --exclude=.kube/http-cache \
+    --exclude=.minikube \
+    --exclude=.pyenv \
+    --exclude=.vim/session \
+    --exclude=.vim/plugged \
+    --exclude=.vim/undo \
+    --exclude=.tldrc \
     ~/ /Volumes/CZ/WorkHome

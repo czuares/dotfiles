@@ -1,33 +1,29 @@
 #!/bin/bash
 
-aws-token() { 
-    oathtool --totp -b "$(<~/.oath-aws)" | pbcopy
+# aws-token() { 
+#     oathtool --totp -b "$(<~/.oath-aws)" | pbcopy
+# }
+
+function okta-token() { 
+    oathtool --totp -b "$(<~/.oath-okta)" | pbcopy
 }
 
 function awsp() {
     if [ $# -lt 1 ]; then 
-        # echo "Usage: awsp <profile>"; return; 
+        echo "Usage: awsp <profile>"; return; 
         unset AWS_DEFAULT_PROFILE;
         unset AWS_PROFILE;
         unset AWS_REGION;
-        export KOPS_STATE_STORE="s3://syapse-terraform/prod/kops"
-        # unset KOPS_STATE_STORE;
-        return 0
-    fi
-
-    exists=$(aws configure get aws_access_key_id --profile "$1")
-    if [[ -n $exists ]]; then
-        export AWS_DEFAULT_PROFILE=$1;
-        export AWS_PROFILE=$1;
-        export AWS_REGION=$(aws configure get region --profile "$1");
-        export KOPS_STATE_STORE="s3://syapse-terraform/$AWS_PROFILE/kops"
-        k8s-auth "$1"
-        aws-token
-        aws-mfa --duration 43200
-        pbcopy < /dev/null
-        echo "Switched to AWS Profile: $1";
-    else
-        echo "Profile $1 doesn't exist!"
+        unset KOPS_STATE_STORE;
         return 1
     fi
+
+    export AWS_DEFAULT_PROFILE=$1;
+    export AWS_PROFILE=$1;
+    export AWS_REGION=$(aws configure get region --profile "$1");
+    export KOPS_STATE_STORE="s3://syapse-terraform/$AWS_PROFILE/kops"
+    okta-token
+    saml2aws login -a "$1"
+    pbcopy < /dev/null
+    echo "Switched to AWS Profile: $1";
 };

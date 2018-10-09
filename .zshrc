@@ -1,4 +1,5 @@
 source ~/.zsh/plugins.zsh
+source ~/.zsh/powerline-go.zsh
 
 # zstyle ':completion:*' menu select
 # zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
@@ -33,7 +34,7 @@ setopt hist_verify
 
 source virtualenvwrapper.sh
 source <(kubectl completion zsh)
-source <(stern --completion=zsh)
+# source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh
 # source /usr/local/etc/profile.d/z.sh
 
@@ -42,6 +43,6 @@ source ~/.zsh/functions-core.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/env.zsh
 
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
