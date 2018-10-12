@@ -135,8 +135,3 @@ function tf-release() {
     unset GREN_GITHUB_TOKEN
     deactivate_node
 }
-
-function git-top() { 
-    cd "$(git rev-parse --show-toplevel)" || true
-}
-
