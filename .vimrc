@@ -59,6 +59,7 @@ Plug 'cwood/ultisnips-terraform-snippets'
 " Testing
 Plug 'gu-fan/simpleterm.vim'
 Plug 't9md/vim-choosewin'
+Plug 'google/vim-jsonnet'
 call plug#end()
 
 " Plug 'vim-scripts/grep.vim'
