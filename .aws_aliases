@@ -23,7 +23,7 @@ function awsp() {
     export AWS_REGION=$(aws configure get region --profile "$1");
     export KOPS_STATE_STORE="s3://syapse-terraform/$AWS_PROFILE/kops"
     okta-token
-    saml2aws login -a "$1"
+    saml2aws login -a "$1" --skip-prompt
     pbcopy < /dev/null
     echo "Switched to AWS Profile: $1";
 };

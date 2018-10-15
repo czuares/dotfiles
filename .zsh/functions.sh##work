@@ -135,3 +135,18 @@ function tf-release() {
     unset GREN_GITHUB_TOKEN
     deactivate_node
 }
+
+function helm-delete-chart() {
+    : "${1?Expected Chart}"
+    : "${2?Expected Version}"
+    local profile="$AWS_PROFILE"
+    awsp prod
+    echo "Deleting $1:$2 from charts"
+    helm s3 delete --version="$2" "$1" syapse
+    awsp "$profile"
+}
+
+function gtop(){
+    cd "$(git rev-parse --show-toplevel)" || true 
+}
+

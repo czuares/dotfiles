@@ -36,5 +36,3 @@ alias du="ncdu --color dark -rr -x --exclude .git"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias help='tldr'
 alias ping='prettyping --nolegend'
-alias gtop="cd $(git rev-parse --show-toplevel) || true"
-
