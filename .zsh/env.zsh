@@ -7,11 +7,14 @@ export USE_EDITOR="$EDITOR"
 export VISUAL=$EDITOR
 export PAGER=less
 
+export HISTFILE=~/.zsh_history
+export HSTR_CONFIG=hicolor
+
 export PROJECT_HOME="$HOME/proj"
 
 # /usr/local/opt/go/libexec/bin:
-# export PATH="/usr/local/sbin:$PATH" # make homebrew happy
 # export PATH="/usr/X11/bin:$PATH"    # x11
+export PATH="/usr/local/sbin:$PATH" # make homebrew happy
 export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/.local/bin" # custom
 # fpath=(/usr/local/share/zsh-completions $fpath)
 

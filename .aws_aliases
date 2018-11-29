@@ -10,11 +10,11 @@ function okta-token() {
 
 function awsp() {
     if [ $# -lt 1 ]; then 
-        echo "Usage: awsp <profile>"; return; 
-        unset AWS_DEFAULT_PROFILE;
-        unset AWS_PROFILE;
-        unset AWS_REGION;
-        unset KOPS_STATE_STORE;
+        echo "Usage: awsp <profile>"
+        unset AWS_DEFAULT_PROFILE
+        unset AWS_PROFILE
+        unset AWS_REGION
+        unset KOPS_STATE_STORE
         return 1
     fi
 

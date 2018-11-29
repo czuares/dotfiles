@@ -1,6 +1,9 @@
 " Share clipboard with host
 set clipboard=unnamed
 
+" Disable startup message
+set shortmess=I
+
 set incsearch                   " incremental searching
 set showmatch                   " show pairs match
 set hlsearch                    " highlight search results
@@ -32,6 +35,8 @@ set undoreload=10000        " number of lines to save for undo
 
 " Colorscheme
 set background=dark
+" colorscheme one
+" colorscheme orbital
 colorscheme hybrid_material
 " colorscheme zenburn peaksea janah onedark
 " autocmd ColorScheme janah highlight Normal ctermbg=235
@@ -49,13 +54,11 @@ autocmd BufEnter * if &filetype == "" | setlocal filetype=detect | endif
 " Set spell for markdown
 autocmd FileType markdown setlocal spell
 
+" close vim if nerdtree is only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " " change dir to opened buffer
 " autocmd BufEnter * silent! lcd %:p:h
 
 " fzf (brew installed)
 set rtp+=/usr/local/opt/fzf
-
-" https://github.com/vim/vim/issues/3117
-if has('python3')
-  silent! python3 1
-endif

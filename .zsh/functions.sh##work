@@ -3,6 +3,8 @@
 # Source custom files
 . ~/.aws_aliases
 
+export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
+
 # Setup GPG
 export GPG_TTY=$(tty)
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
@@ -11,7 +13,7 @@ eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
-    chtf 0.11.7
+    chtf 0.11.10
 fi
 
 function make-venv() {
@@ -141,6 +143,7 @@ function helm-delete-chart() {
     : "${2?Expected Version}"
     local profile="$AWS_PROFILE"
     awsp prod
+    helm repo update
     echo "Deleting $1:$2 from charts"
     helm s3 delete --version="$2" "$1" syapse
     awsp "$profile"

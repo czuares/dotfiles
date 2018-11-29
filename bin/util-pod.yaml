@@ -5,7 +5,7 @@ metadata:
   labels:
     app: "${SERVICE}-util-pod"
   annotations:
-    iam.amazonaws.com/role: knowledgebase
+    iam.amazonaws.com/role: "${SERVICE}"
 spec:
   containers:
     - name: "${SERVICE}"
@@ -15,9 +15,9 @@ spec:
         runAsUser: 0
       envFrom:
       - configMapRef:
-          name: "${SERVICE}.env"
+          name: "${SERVICE}-env"
       - secretRef:
-          name: "${SERVICE}.secrets"
+          name: "${SERVICE}-secrets"
       command:
         - cat
       tty: true
