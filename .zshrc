@@ -48,3 +48,7 @@ source ~/.zsh/env.zsh
 # eval "$(pyenv init -)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/czuares/.sdkman"
+[[ -s "/Users/czuares/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/czuares/.sdkman/bin/sdkman-init.sh"

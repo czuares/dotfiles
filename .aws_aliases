@@ -26,4 +26,4 @@ function awsp() {
     saml2aws login -a "$1" --skip-prompt
     pbcopy < /dev/null
     echo "Switched to AWS Profile: $1";
-};
+}

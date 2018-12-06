@@ -26,8 +26,8 @@ alias tf=terraform
 alias k=kubectl
 alias kc=kubectx
 alias kn=kubens
-alias tfplan="terraform plan -out plan.tfplan"
-alias tfapply="terraform apply plan.tfplan"
+alias tfplan="command terraform plan -out plan.tfplan"
+alias tfapply="command terraform apply plan.tfplan"
 alias proj="cd $PROJECT_HOME"
 
 alias ..="cd .."

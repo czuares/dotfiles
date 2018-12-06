@@ -1,5 +1,34 @@
 #!/usr/bin/env bash
 
+#function terraform() {
+#    local confirm=false, plan=false
+
+#    while test $# -gt 0
+#    do
+#        case "$1" in
+#            plan)
+#                plan=true; confirm=false
+#                ;;
+#            -auto-approve|*destroy|-force)
+#                if ! $plan; then
+#                   confirm=true
+#                fi
+#                ;;
+#        esac
+#        shift
+#    done
+#    if $confirm; then
+#        #shellcheck disable=SC1117
+#        echo -e "***WARNING!***\nDangerous command detected!\n\nAre you sure you'd like to continue? [y/n]"
+#        read -r
+#        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+#            echo "Action Cancelled"
+#            return 1
+#        fi
+#    fi
+#    command terraform "$@"
+#}
+
 function brew() {
     local dump=false;
     if [[ $# -gt 0 ]]; then

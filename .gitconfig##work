@@ -26,7 +26,7 @@
     prb = pull --rebase
     ready = rebase -i @{u}
     rb = rebase
-    rbm = !git pull master && git rebase origin/master
+    rbm = !git pull origin master && git rebase origin/master
     rbc = rebase --continue
     rba = rebase --abort
     rbs = rebase --skip

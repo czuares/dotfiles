@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Source custom files
+. ~/.syapse_functions.sh
 . ~/.aws_aliases
 
 export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
@@ -19,22 +20,6 @@ fi
 function make-venv() {
     : ${1?Project name is required}
     mkvirtualenv -p python3.6 -a ~/proj/$1 $1
-}
-
-function update-salt-users-state() {
-    if [[ ${VIRTUAL_ENV##*/} != "sysalt" ]]; then
-        echo "Not in sysalt venv"
-        return 1
-    fi
-    : ${1?Target is required}
-    salt-ssh -i $1 state.sls syapse-users "${@:2}"
-}
-
-function ssh-opkins-agent() {
-    : ${1?Expected parameters <host>}
-    ssh -o "UserKnownHostsFile /dev/null" \
-        -o "StrictHostKeyChecking no" \
-        -o "LogLevel ERROR" "syops@$1"
 }
 
 function ssh-circleci() {
@@ -62,45 +47,6 @@ function okta-pass() {
     lpass show -cp okta.com
 }
 
-function gh() {
-    local repo
-    if [[ $# -eq 1 ]]; then
-        repo="$1"
-    else
-        local dir
-        dir=$(git rev-parse --show-toplevel)
-        repo="${dir##*/}"
-    fi
-    open "https://github.com/syapse/$repo"
-}
-
-function create-ssh-user() {
-    : "${1?Path to key expected}"
-    : "${2?Username expected}"
-
-    local key
-    local user
-    local keypath
-    key="$1"
-    user="$2"
-    keypath="$HOME/proj/sysalt/salt/states/syapse-users/keys/$user.id_rsa.pub"
-
-    if [[ ! -e "$key" ]]; then
-        echo "Path to $key is invalid!"
-        return 1
-    elif [[ -e "$keypath" ]]; then
-        echo "Key already exists at $keypath"
-        return 1
-    fi
-
-    mv "$key" "$keypath"
-
-    if [[ ${VIRTUAL_ENV##*/} != "sysalt" ]]; then
-        workon sysalt
-    fi
-    ./scripts/add-user-to-bastion.sh "$user"
-    salt-ssh saws1-uw1c-prod-cs state.sls syapse-saws
-}
 
 function kpod() {
     : "${1?Expected app name}"
@@ -125,28 +71,6 @@ function klog () {
     local name="$1"
 
     kubectl logs -f "$(kpod "$name")"
-}
-
-function tf-release() {
-    : "${1?Expected tag}"
-    local tag="$1"
-    source "$HOME/node/bin/activate"
-    GREN_GITHUB_TOKEN=$(<~/.github_token)
-    export GREN_GITHUB_TOKEN
-    ~/proj/docker-terraform/scripts/tf-release "$tag" "$tag"
-    unset GREN_GITHUB_TOKEN
-    deactivate_node
-}
-
-function helm-delete-chart() {
-    : "${1?Expected Chart}"
-    : "${2?Expected Version}"
-    local profile="$AWS_PROFILE"
-    awsp prod
-    helm repo update
-    echo "Deleting $1:$2 from charts"
-    helm s3 delete --version="$2" "$1" syapse
-    awsp "$profile"
 }
 
 function gtop(){

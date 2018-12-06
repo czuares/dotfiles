@@ -42,6 +42,8 @@ Plug 'rhysd/committia.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'prakashdanish/vim-githubinator'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 " Extra languages
 Plug 'towolf/vim-helm'
 Plug 'hashivim/vim-terraform'
@@ -67,8 +69,6 @@ call plug#end()
 
 " Plug 'tpope/vim-fugitive'
 " Plug 'vim-scripts/grep.vim'
-" Plug 'tyru/open-browser.vim'
-" Plug 'tyru/open-browser-github.vim'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'junegunn/vim-peekaboo'
 " Plug 'mattesgroeger/vim-bookmarks'
