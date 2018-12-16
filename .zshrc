@@ -34,21 +34,9 @@ setopt hist_verify
 # setopt share_history
 # setopt append_history
 
-source virtualenvwrapper.sh
-source <(kubectl completion zsh)
-# source <(stern --completion=zsh)
-# source ~/.local/bin/aws_zsh_completer.sh
 # source /usr/local/etc/profile.d/z.sh
-
-source ~/.zsh/k8scontext.zsh
-source ~/.zsh/functions-core.sh
-source ~/.zsh/functions.sh
-source ~/.zsh/env.zsh
-
-# eval "$(pyenv init -)"
-
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/czuares/.sdkman"
-[[ -s "/Users/czuares/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/czuares/.sdkman/bin/sdkman-init.sh"
+source ~/.zsh/functions-core.sh
+source ~/.zsh/env.zsh
+source ~/.zsh/functions.sh

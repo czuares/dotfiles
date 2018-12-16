@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+source virtualenvwrapper.sh
+source <(kubectl completion zsh)
+source ~/.zsh/k8scontext.zsh
+# source <(stern --completion=zsh)
+# source ~/.local/bin/aws_zsh_completer.sh
+# eval "$(pyenv init -)"
+
 # Source custom files
 . ~/.syapse_functions.sh
 . ~/.aws_aliases
@@ -76,4 +83,9 @@ function klog () {
 function gtop(){
     cd "$(git rev-parse --show-toplevel)" || true 
 }
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/czuares/.sdkman"
+[[ -s "/Users/czuares/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/czuares/.sdkman/bin/sdkman-init.sh"
 
