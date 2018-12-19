@@ -13,3 +13,14 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 fi
 `!p snip.rv ='\n'`
 endsnippet
+
+snippet check_requirements
+REQUIREMENTS=("${1}")
+check_requirements() {
+	for cmd in "${REQUIREMENTS[@]}"; do
+		command -v "$cmd" >/dev/null 2>&1 && continue
+		echo "$cmd is required - please install it."
+		return 1
+	done
+}
+endsnippet

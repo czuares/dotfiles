@@ -14,11 +14,14 @@
     it = fetch --all
     co = checkout
     com = checkout master
+    cod = checkout develop
     cob = checkout -b
     s = status
+    st = status
     b = branch
     bra = branch -a
     staged = diff --cached
+    stg = diff --cached
     cm = commit
     amend = commit --amend
     fixup = commit --fixup HEAD
@@ -46,7 +49,7 @@
     al = !pushd $(git rev-parse --show-toplevel) && git add . && popd
     again = !git a . && git fixup && git push
     quick-fix = !git a . && git amend --no-edit && git yolo
-    refresh = !git stash && git fetch && git rbm && git stash pop
+    up = !git stash && git fetch && git rbm && git stash pop
     close-pr = !cb=$(git rev-parse --abbrev-ref HEAD) && git co master && git pull && git branch -D $cb
 ; [diff "sopsdiffer"]
 ; 	textconv = sops -d

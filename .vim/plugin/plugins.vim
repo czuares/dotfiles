@@ -37,8 +37,8 @@ let g:vim_markdown_conceal = 0
 
 " CtrlP
 " let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|terraform)$'
-let g:ctrlp_working_path_mode = 'a'
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|terraform)$'
+" let g:ctrlp_working_path_mode = 'a'
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']

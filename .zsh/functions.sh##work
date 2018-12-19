@@ -3,6 +3,8 @@
 source virtualenvwrapper.sh
 source <(kubectl completion zsh)
 source ~/.zsh/k8scontext.zsh
+source ~/.nix-profile/etc/profile.d/nix.sh
+
 # source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh
 # eval "$(pyenv init -)"
