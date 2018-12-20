@@ -14,6 +14,7 @@ source ~/.nix-profile/etc/profile.d/nix.sh
 . ~/.aws_aliases
 
 export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
+export HOMEBREW_GITHUB_API_TOKEN=$(<~/.homebrew-token)
 
 # Setup GPG
 export GPG_TTY=$(tty)
@@ -52,6 +53,10 @@ function git-set-upstream() {
     git branch --set-upstream-to=origin/$branch $branch
 }
 
+function gtop(){
+    cd "$(git rev-parse --show-toplevel)" || true 
+}
+
 function okta-pass() {
     lpass show -cp okta.com
 }
@@ -82,10 +87,9 @@ function klog () {
     kubectl logs -f "$(kpod "$name")"
 }
 
-function gtop(){
-    cd "$(git rev-parse --show-toplevel)" || true 
+function kwatch() {
+    watch -n "${2:-5}" "kubectl get $1"
 }
-
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/czuares/.sdkman"
