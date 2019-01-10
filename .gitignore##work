@@ -4,6 +4,7 @@
 *.swp
 *.tfplan
 *.tfstate
+*.backup
 .terraform
 .vscode
 test.sh

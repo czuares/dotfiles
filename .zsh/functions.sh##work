@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 source virtualenvwrapper.sh
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 source ~/.zsh/k8scontext.zsh
-source ~/.nix-profile/etc/profile.d/nix.sh
+# source ~/.nix-profile/etc/profile.d/nix.sh
 
 # source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh
@@ -24,7 +24,7 @@ eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
     source "/usr/local/share/chtf/chtf.sh"
-    chtf 0.11.10
+    chtf 0.11.11
 fi
 
 function make-venv() {
@@ -91,7 +91,7 @@ function kwatch() {
     watch -n "${2:-5}" "kubectl get $1"
 }
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/czuares/.sdkman"
-[[ -s "/Users/czuares/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/czuares/.sdkman/bin/sdkman-init.sh"
+##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#export SDKMAN_DIR="/Users/czuares/.sdkman"
+#[[ -s "/Users/czuares/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/czuares/.sdkman/bin/sdkman-init.sh"
 

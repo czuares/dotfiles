@@ -30,6 +30,7 @@
     ready = rebase -i @{u}
     rb = rebase
     rbm = !git pull origin master && git rebase origin/master
+    rbd = !git pull origin develop && git rebase origin/develop
     rbc = rebase --continue
     rba = rebase --abort
     rbs = rebase --skip
@@ -47,8 +48,8 @@
     psh = push -u
     pr = !git push && hub pull-request -o
     al = !pushd $(git rev-parse --show-toplevel) && git add . && popd
-    again = !git a . && git fixup && git push
-    quick-fix = !git a . && git amend --no-edit && git yolo
+    again = !git a -u . && git fixup && git push
+    quick-fix = !git a -u && git amend --no-edit && git yolo
     up = !git stash && git fetch && git rbm && git stash pop
     close-pr = !cb=$(git rev-parse --abbrev-ref HEAD) && git co master && git pull && git branch -D $cb
 ; [diff "sopsdiffer"]
