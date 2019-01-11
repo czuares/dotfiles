@@ -10,7 +10,7 @@ source ~/.zsh/k8scontext.zsh
 # eval "$(pyenv init -)"
 
 # Source custom files
-. ~/.syapse_functions.sh
+. ~/private/scripts/syapse_functions.sh
 . ~/.aws_aliases
 
 export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
