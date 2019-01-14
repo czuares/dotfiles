@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 source virtualenvwrapper.sh
-# source <(kubectl completion zsh)
 source ~/.zsh/k8scontext.zsh
+
+# source <(kubectl completion zsh)
 # source ~/.nix-profile/etc/profile.d/nix.sh
 
 # source <(stern --completion=zsh)
@@ -12,6 +13,9 @@ source ~/.zsh/k8scontext.zsh
 # Source custom files
 . ~/private/scripts/syapse_functions.sh
 . ~/.aws_aliases
+
+# Work aliases
+alias ka="k8s-auth"
 
 export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
 export HOMEBREW_GITHUB_API_TOKEN=$(<~/.homebrew-token)

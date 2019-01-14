@@ -25,4 +25,14 @@ if [[ "$system_type" == "Darwin" ]]; then
       echo "Bootstraping Vim"
       vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
   fi
+
+  if command -v pipsi >/dev/null 2>&1; then
+    echo "Installing pipsi"
+    curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
+  fi
+
+  if command -v mpm >/dev/null 2>&1; then
+    echo "Installing mpm"
+    pipsi --bin-dir /usr/local/sbin/ install meta-package-manager
+  fi
 fi
