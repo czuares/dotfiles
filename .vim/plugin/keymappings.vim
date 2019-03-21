@@ -29,3 +29,6 @@ inoremap <right> <nop>
 
 " Reformat file
 map <leader>gg gg=G''
+
+" Format JSON helper
+com! FormatJSON %!python -m json.tool

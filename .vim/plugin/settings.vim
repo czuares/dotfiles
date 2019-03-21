@@ -16,8 +16,10 @@ set cursorline
 
 " Tabs, text
 set expandtab " Use spaces instead of tabs
-set shiftwidth=4 " 1 tab == 4 spaces
-set tabstop=4
+" set shiftwidth=4 " 1 tab == 4 spaces
+" set tabstop=4
+set shiftwidth=0
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr

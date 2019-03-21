@@ -21,82 +21,81 @@ export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
 export HOMEBREW_GITHUB_API_TOKEN=$(<~/.homebrew-token)
 
 # Setup GPG
-if ! gpg-connect-agent /bye; then
-    eval $(gpg-agent --daemon)
-fi
+# if ! gpg-connect-agent /bye; then
+#     eval $(gpg-agent --daemon)
+# fi
 export GPG_TTY=$(tty)
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-# eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
+eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
 
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-    source "/usr/local/share/chtf/chtf.sh"
-    chtf 0.11.11
+  source "/usr/local/share/chtf/chtf.sh"
+  chtf 0.11.11
 fi
 
 function make-venv() {
-    : ${1?Project name is required}
-    mkvirtualenv -p python3.6 -a ~/proj/$1 $1
+  : ${1?Project name is required}
+  mkvirtualenv -p python3.6 -a ~/proj/$1 $1
 }
 
 function ssh-circleci() {
-    : ${1?Expected parameters <port> <host>}
-    ssh -o "UserKnownHostsFile /dev/null" \
-        -o "StrictHostKeyChecking no" \
-        -o "LogLevel ERROR" -p "$@"
-}
+  : ${1?Expected parameters <port> <host>}
+  ssh -o "UserKnownHostsFile /dev/null" \
+    -o "StrictHostKeyChecking no" \
+    -o "LogLevel ERROR" -p "$@"
+  }
 
 function dedupe-history() {
-    cp ~/.zsh_history{,-old}
-    tmpFile=$(mktemp)
-    awk -F ";" '!seen[$2]++' ~/.zsh_history > $tmpFile
-    # echo $tmpFile
-    mv $tmpFile ~/.zsh_history
+  cp ~/.zsh_history{,-old}
+  tmpFile=$(mktemp)
+  awk -F ";" '!seen[$2]++' ~/.zsh_history > $tmpFile
+  # echo $tmpFile
+  mv $tmpFile ~/.zsh_history
 }
 
 function git-set-upstream() {
-    local branch="$(git rev-parse --abbrev-ref HEAD)"
-    echo "Current branch $branch"
-    git branch --set-upstream-to=origin/$branch $branch
+  local branch="$(git rev-parse --abbrev-ref HEAD)"
+  echo "Current branch $branch"
+  git branch --set-upstream-to=origin/$branch $branch
 }
 
 function gtop(){
-    cd "$(git rev-parse --show-toplevel)" || true 
+  cd "$(git rev-parse --show-toplevel)" || true 
 }
 
 function okta-pass() {
-    lpass show -cp okta.com
+  lpass show -cp okta.com
 }
 
-
 function kpod() {
-    : "${1?Expected app name}"
-    local name="$1"
+  : "${1?Expected app name}"
+  local name="$1"
 
-    kubectl get pod \
-        -l app="$name" \
-        --no-headers \
-        -o custom-columns=:metadata.name | head -n 1
-    }
+  kubectl get pod \
+    -l app="$name" \
+    --no-headers \
+    -o custom-columns=:metadata.name | head -n 1
+  }
 
 function kexec() {
-    : "${1?Expected app name}"
-    : "${2?Expected command}"
-    local name="$1"
+  : "${1?Expected app name}"
+  : "${2?Expected command}"
+  local name="$1"
 
-    kubectl exec -it "$(kpod "$name")" "${@:2}"
+  kubectl exec -it "$(kpod "$name")" "${@:2}"
 }
 
 function klog () {
-    : "${1?Expected app name}"
-    local name="$1"
+  : "${1?Expected app name}"
+  local name="$1"
 
-    kubectl logs -f "$(kpod "$name")"
+  kubectl logs -f "$(kpod "$name")"
 }
 
 function kwatch() {
-    watch -n "${2:-5}" "kubectl get $1"
+  watch -n "${2:-5}" "kubectl get $1"
 }
 
 ##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

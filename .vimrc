@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
 " UI
 Plug 'ryanoasis/vim-devicons'
 Plug 'flazz/vim-colorschemes'
@@ -65,6 +66,7 @@ Plug 'cwood/ultisnips-terraform-snippets'
 Plug 'gu-fan/simpleterm.vim'
 Plug 't9md/vim-choosewin'
 Plug 'google/vim-jsonnet'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Plug 'tpope/vim-fugitive'
@@ -95,7 +97,6 @@ call plug#end()
 " Plug 'ekalinin/dockerfile.vim'
 " Plug 'elzr/vim-json'
 " Plug 'enricobacis/vim-airline-clock'
-" Plug 'ervandew/supertab'
 " Plug 'j5shi/ctrlp_bdelete.vim'
 " Plug 'jarrodctaylor/vim-shell-executor'
 " Plug 'jistr/vim-nerdtree-tabs'
