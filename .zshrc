@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 source ~/.zsh/plugins.zsh
 source ~/.zsh/powerline-go.zsh
 
@@ -40,3 +41,4 @@ setopt hist_verify
 source ~/.zsh/functions-core.sh
 source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
+# zprof

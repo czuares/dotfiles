@@ -56,6 +56,9 @@ autocmd BufEnter * if &filetype == "" | setlocal filetype=detect | endif
 " Set spell for markdown
 autocmd FileType markdown setlocal spell
 
+" Set gotmpl to helm
+autocmd BufRead,BufNewFile *.gotmpl set filetype=helm
+
 " close vim if nerdtree is only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
