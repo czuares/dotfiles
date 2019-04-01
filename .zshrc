@@ -41,4 +41,6 @@ setopt hist_verify
 source ~/.zsh/functions-core.sh
 source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
+
+compinit
 # zprof

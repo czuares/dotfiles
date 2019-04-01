@@ -27,7 +27,6 @@
   fixup = commit --fixup HEAD
   yolo = push --force-with-lease
   prb = pull --rebase
-  ready = !git set-upstream && git rebase -i --autosquash @{u}
   hist = log --oneline --decorate
   rb = rebase
   rbm = !git pull origin master && git rebase origin/master
@@ -39,6 +38,7 @@
   ma = merge --abort
   remotes = remote -v
   stashes = stash list
+  stash-preview = stash show -p
   branches = !git --no-pager branch --list
   delremotebranch = push origin --delete 
   delremotetag = push --delete origin
@@ -47,8 +47,8 @@
   sh = add -p
   discard = checkout -p
   psh = push -u
+  ready = !git set-upstream && git rebase -i --autosquash @{u}
   pr = !git push -u && hub pull-request -o
-  al = !pushd $(git rev-parse --show-toplevel) && git add . && popd
   again = !git a -u . && git fixup && git push
   quick-fix = !git a -u && git amend --no-edit && git yolo
   up = !git it && git rbm --autostash
