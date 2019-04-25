@@ -2,6 +2,16 @@
 
 system_type=$(uname -s)
 
+if command -v vim >/dev/null 2>&1; then
+    echo "Bootstraping Vim"
+    vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+fi
+
+if command -v pipsi >/dev/null 2>&1; then
+  echo "Installing pipsi"
+  curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
+fi
+
 if [[ "$system_type" == "Darwin" ]]; then
 
   # install homebrew if it's missing
@@ -19,16 +29,6 @@ if [[ "$system_type" == "Darwin" ]]; then
   if [ -d "$HOME/.config/iterm2" ]; then
       echo "Setting iTerm preference folder"
       defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
-  fi
-
-  if command -v vim >/dev/null 2>&1; then
-      echo "Bootstraping Vim"
-      vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
-  fi
-
-  if command -v pipsi >/dev/null 2>&1; then
-    echo "Installing pipsi"
-    curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
   fi
 
   if command -v mpm >/dev/null 2>&1; then
