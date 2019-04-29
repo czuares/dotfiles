@@ -13,7 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 " UI
 Plug 'ryanoasis/vim-devicons'
 Plug 'flazz/vim-colorschemes'
@@ -67,6 +67,7 @@ Plug 'gu-fan/simpleterm.vim'
 Plug 't9md/vim-choosewin'
 Plug 'google/vim-jsonnet'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'nvie/vim-flake8'
 call plug#end()
 
 " Plug 'tpope/vim-fugitive'

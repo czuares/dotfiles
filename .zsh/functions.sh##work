@@ -35,19 +35,19 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   chtf 0.11.11
 fi
 
-function make-venv() {
+make-venv() {
   : ${1?Project name is required}
   mkvirtualenv -p python3.6 -a ~/proj/$1 $1
 }
 
-function ssh-circleci() {
+ssh-circleci() {
   : ${1?Expected parameters <port> <host>}
   ssh -o "UserKnownHostsFile /dev/null" \
     -o "StrictHostKeyChecking no" \
     -o "LogLevel ERROR" -p "$@"
   }
 
-function dedupe-history() {
+dedupe-history() {
   cp ~/.zsh_history{,-old}
   tmpFile=$(mktemp)
   awk -F ";" '!seen[$2]++' ~/.zsh_history > $tmpFile
@@ -55,21 +55,21 @@ function dedupe-history() {
   mv $tmpFile ~/.zsh_history
 }
 
-function git-set-upstream() {
+git-set-upstream() {
   local branch="$(git rev-parse --abbrev-ref HEAD)"
   echo "Current branch $branch"
   git branch --set-upstream-to=origin/$branch $branch
 }
 
-function gtop(){
+gtop(){
   cd "$(git rev-parse --show-toplevel)" || true 
 }
 
-function okta-pass() {
+okta-pass() {
   lpass show -cp okta.com
 }
 
-function kpod() {
+kpod() {
   : "${1?Expected app name}"
   local name="$1"
 
@@ -79,7 +79,7 @@ function kpod() {
     -o custom-columns=:metadata.name | head -n 1
   }
 
-function kexec() {
+kexec() {
   : "${1?Expected app name}"
   : "${2?Expected command}"
   local name="$1"
@@ -87,15 +87,29 @@ function kexec() {
   kubectl exec -it "$(kpod "$name")" "${@:2}"
 }
 
-function klog () {
+klog () {
   : "${1?Expected app name}"
   local name="$1"
 
   kubectl logs -f "$(kpod "$name")"
 }
 
-function kwatch() {
+kwatch() {
   watch -n "${2:-5}" "kubectl get $1"
+}
+
+kgetpodsbyhost() {
+  : "${1?Expected host name}"
+
+  kubectl get po --all-namespaces \
+    --field-selector=spec.nodeName="${1}"
+}
+
+k-dump-running-pods-host() {
+  kubectl get pod \
+    -o=custom-columns=NAME:.metadata.name,NODE:.spec.nodeName,NS:.metadata.namespace \
+    --field-selector=status.phase=Running \
+    --all-namespaces
 }
 
 ##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

@@ -42,5 +42,5 @@ source ~/.zsh/functions-core.sh
 source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
 
-compinit
+# compinit
 # zprof

@@ -47,11 +47,11 @@
   sh = add -p
   discard = checkout -p
   psh = push -u
-  ready = !git set-upstream && git rebase -i --autosquash @{u}
+  ready = !git rebase -i --autosquash master
   pr = !git push -u && hub pull-request -o
   again = !git a -u . && git fixup && git push
   quick-fix = !git a -u && git amend --no-edit && git yolo
-  up = !git it && git rbm --autostash
+  up = !git it && git stash && git rbm && git stash pop
   close-pr = !cb=$(git rev-parse --abbrev-ref HEAD) && git co master && git pull && git branch -D $cb
   set-upstream = !cb=$(git rev-parse --abbrev-ref HEAD) && git branch --set-upstream-to=origin/$cb $cb
 ; [diff "sopsdiffer"]
