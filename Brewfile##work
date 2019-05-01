@@ -22,6 +22,7 @@ tap "weaveworks/tap"
 tap "yleisradio/terraforms"
 cask "java"
 cask "osxfuse"
+brew "aws-iam-authenticator", link: false
 brew "bash"
 brew "bash-completion"
 brew "bat"

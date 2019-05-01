@@ -21,13 +21,13 @@ export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
 export HOMEBREW_GITHUB_API_TOKEN=$(<~/.homebrew-token)
 
 # Setup GPG
-# if ! gpg-connect-agent /bye; then
-#     eval $(gpg-agent --daemon)
-# fi
+if ! gpg-connect-agent /bye; then
+    eval $(gpg-agent --daemon)
+fi
 export GPG_TTY=$(tty)
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
+# eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
 
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
