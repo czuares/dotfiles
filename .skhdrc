@@ -37,16 +37,16 @@ shift + ctrl - k : chunkc tiling::window --warp north
 shift + ctrl - l : chunkc tiling::window --warp east
 
 # Move focus container to workspace
-shift + cmd - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop) || \
+lctrl + cmd - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop) || \
                   chunkc tiling::window --send-to-desktop (chunkc get _last_active_desktop)
-shift + cmd - p : chunkc tiling::window --send-to-desktop prev; skhd -k "ctrl - left"
-shift + cmd - n : chunkc tiling::window --send-to-desktop next; skhd -k "ctrl - right"
-shift + cmd - 1 : chunkc tiling::window --send-to-desktop 1; skhd -k "ctrl - 1"
-shift + cmd - 2 : chunkc tiling::window --send-to-desktop 2; skhd -k "ctrl - 2"
-shift + cmd - 3 : chunkc tiling::window --send-to-desktop 3; skhd -k "ctrl - 3"
-shift + cmd - 4 : chunkc tiling::window --send-to-desktop 4; skhd -k "ctrl - 4"
-shift + cmd - 5 : chunkc tiling::window --send-to-desktop 5; skhd -k "ctrl - 5"
-shift + cmd - 6 : chunkc tiling::window --send-to-desktop 6; skhd -k "ctrl - 6"
+lctrl + cmd - p : chunkc tiling::window --send-to-desktop prev; skhd -k "ctrl - left"
+lctrl + cmd - n : chunkc tiling::window --send-to-desktop next; skhd -k "ctrl - right"
+lctrl + cmd - 1 : chunkc tiling::window --send-to-desktop 1; skhd -k "ctrl - 1"
+lctrl + cmd - 2 : chunkc tiling::window --send-to-desktop 2; skhd -k "ctrl - 2"
+lctrl + cmd - 3 : chunkc tiling::window --send-to-desktop 3; skhd -k "ctrl - 3"
+lctrl + cmd - 4 : chunkc tiling::window --send-to-desktop 4; skhd -k "ctrl - 4"
+lctrl + cmd - 5 : chunkc tiling::window --send-to-desktop 5; skhd -k "ctrl - 5"
+lctrl + cmd - 6 : chunkc tiling::window --send-to-desktop 6; skhd -k "ctrl - 6"
 
 # Resize windows
 lctrl + alt - h : \
@@ -99,7 +99,7 @@ shift + lctrl + alt - l : chunkc tiling::window --use-insertion-point east
 shift + alt - space : chunkc tiling::window --toggle float
 
 # Restart Chunkwm
-shift + lctrl + alt - r : \
+hyper - r : \
     /usr/bin/env osascript <<< \
         "display notification \"Restarting Chunkwm\" with title \"Chunkwm\""; \
     brew services restart chunkwm
@@ -112,11 +112,11 @@ shift + alt - f : chunkc tiling::window --toggle native-fullscreen
 alt - w : chunkc tiling::window --close
 
 # send window to monitor and follow focus
-ctrl + cmd - z  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
-ctrl + cmd - n  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
-ctrl + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
-ctrl + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
-ctrl + cmd - 3  : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
+alt + cmd - z  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
+alt + cmd - n  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
+alt + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
+alt + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
+alt + cmd - 3  : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
 
 # # fast focus desktop
 # cmd + alt - x : chunkc tiling::desktop --focus $(chunkc get _last_active_desktop)
