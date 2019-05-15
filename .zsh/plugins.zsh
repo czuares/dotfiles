@@ -1,7 +1,12 @@
 #!/usr/bin/env zsh
 
-# Source zplug - should be installed from brew
-export ZPLUG_HOME=/usr/local/opt/zplug
+# Source zplug
+export ZPLUG_HOME=$HOME/.zplug
+if [[ ! -f $ZPLUG_HOME/init.zsh ]]; then
+    echo "Updating zplug"
+   git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
+
 source $ZPLUG_HOME/init.zsh
 
 zplug "zplug/zplug"
