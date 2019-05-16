@@ -11,8 +11,10 @@ source ~/.zsh/k8scontext.zsh
 # eval "$(pyenv init -)"
 
 # Source custom files
-. ~/private/scripts/syapse_functions.sh
-. ~/.aws_aliases
+for f in ~/private/scripts/source/*
+do
+  source "$f"
+done
 
 # Work aliases
 alias ka="k8s-auth"
@@ -122,8 +124,3 @@ k-dump-running-pods-host() {
     --field-selector=status.phase=Running \
     --all-namespaces
 }
-
-##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="/Users/czuares/.sdkman"
-#[[ -s "/Users/czuares/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/czuares/.sdkman/bin/sdkman-init.sh"
-

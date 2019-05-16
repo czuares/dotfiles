@@ -19,6 +19,7 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTDUP=erase
+HSTR_CONFIG=hicolor
 
 setopt bang_hist
 setopt extended_history

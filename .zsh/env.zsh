@@ -7,15 +7,10 @@ export USE_EDITOR="$EDITOR"
 export VISUAL=$EDITOR
 export PAGER=less
 
-export HISTFILE=~/.zsh_history
-export HSTR_CONFIG=hicolor
-
 export PROJECT_HOME="$HOME/proj"
 
-# /usr/local/opt/go/libexec/bin:
-# export PATH="/usr/X11/bin:$PATH"    # x11
 export PATH="/usr/local/sbin:$PATH" # make homebrew happy
-export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/.local/bin" # custom
+export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/private/scripts" # custom
 # fpath=(/usr/local/share/zsh-completions $fpath)
 
 alias rm=trash
@@ -34,7 +29,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ls='LC_COLLATE=C ls'
 alias ll='ls -lAh'
-# alias cat='bat'
+alias cat='bat'
 alias du="ncdu --color dark -rr -x --exclude .git"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias help='tldr'
