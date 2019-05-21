@@ -1,3 +1,6 @@
+" Polyglot
+let g:polyglot_disabled = ['markdown'] " let other plugin do it
+
 " Airline
 let g:airline_theme='minimalist'
 
