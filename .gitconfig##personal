@@ -1,7 +1,7 @@
-[commit]
-	gpgsign = True
+; [commit]
+; 	gpgsign = True
 [user]
-	signingkey = 11BFC2D2BD6087B6
+	; signingkey = 11BFC2D2BD6087B6
 	name = Corey Zuares
 	email = czuares@gmail.com
 [alias]
