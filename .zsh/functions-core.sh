@@ -51,7 +51,7 @@ function brew() {
 
     if $dump; then
         echo "Updating Brewfile"
-        command brew bundle dump --force --file="$HOME/Brewfile"
+        command brew bundle dump --force --file="$HOME/.config/brew/Brewfile"
     fi
 }
 
