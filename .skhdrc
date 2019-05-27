@@ -1,9 +1,10 @@
 # Based on https://github.com/Julian-Heng/chunkwm-config
 # https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
 
-# .blacklist [
-#    "iTerm2"
-# ]
+.blacklist [
+   "VNC Viewer"
+   "VMware Fusion"
+]
 
 # open terminal
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
