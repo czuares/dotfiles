@@ -3,6 +3,7 @@
 
 .blacklist [
    "VNC Viewer"
+   "VMware Fusion"
 ]
 
 # open terminal

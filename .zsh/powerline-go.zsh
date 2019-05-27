@@ -20,7 +20,7 @@ function powerline_precmd() {
     fi
     
     PS1="$(~/go/bin/powerline-go \
-        -modules venv,node,cwd,perms,git,aws,kube,duration,exit \
+        -modules host,ssh,venv,node,cwd,perms,git,aws,kube,duration,exit \
         -duration $__DURATION \
         -shorten-gke-names \
         -newline \
