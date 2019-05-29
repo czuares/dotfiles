@@ -1,0 +1,82 @@
+[commit]
+  ; gpgSign = true
+[user]
+  ; signingkey = 97756AE7B8A4FDA9
+  name = Corey Zuares
+  email = corey.zuares@syapse.com
+[alias]
+  a = add
+  c = commit
+  p = pull
+  l = log
+  d = difftool
+  lp = log -p
+  it = fetch --all
+  co = checkout
+  com = checkout master
+  cod = checkout develop
+  cob = checkout -b
+  s = status
+  st = status
+  b = branch
+  bra = branch -a
+  staged = diff --cached
+  stg = diff --cached
+  cm = commit
+  amend = commit --amend
+  fixup = commit --fixup HEAD
+  yolo = push --force-with-lease
+  prb = pull --rebase
+  hist = log --oneline --decorate
+  rb = rebase
+  rbm = !git pull origin master && git rebase origin/master
+  rbd = !git pull origin develop && git rebase origin/develop
+  rbc = rebase --continue
+  rba = rebase --abort
+  rbs = rebase --skip
+  m = merge
+  ma = merge --abort
+  remotes = remote -v
+  stashes = stash list
+  stash-preview = stash show -p
+  branches = !git --no-pager branch --list
+  delremotebranch = push origin --delete
+  delremotetag = push --delete origin
+  deltag = tag --delete
+  pushtag = push origin --tags
+  sh = add -p
+  discard = checkout -p
+  psh = push -u
+  ready = !git rebase -i --autosquash master
+  pr = !git push -u && hub pull-request -o
+  again = !git a -u . && git fixup && git push
+  quick-fix = !git a -u && git amend --no-edit && git yolo
+  up = !git it && git stash && git rbm && git stash pop
+  close-pr = !cb=$(git rev-parse --abbrev-ref HEAD) && git co master && git pull && git branch -D $cb
+  set-upstream = !cb=$(git rev-parse --abbrev-ref HEAD) && git branch --set-upstream-to=origin/$cb $cb
+; [diff "sopsdiffer"]
+; 	textconv = sops -d
+[push]
+  default = current
+[core]
+  excludesfile = $HOME/.gitignore
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[init]
+  templatedir = ~/.git-templates
+[gpg]
+  program = gpg
+[tag]
+  forceSignAnnotated = true
+; [pager]
+;   diff = diff-so-fancy | less --tabs=1,5 -RFX
+;   show = diff-so-fancy | less --tabs=1,5 -RFX
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[mergetool]
+  prompt = false
+[github]
+  user = czuares
