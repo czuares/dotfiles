@@ -23,6 +23,7 @@ function powerline_precmd() {
         -modules host,ssh,venv,node,cwd,perms,git,aws,kube,duration,exit \
         -duration $__DURATION \
         -shorten-gke-names \
+        -mode patched \
         -newline \
         -shell zsh \
         -error $__ERRCODE)"
