@@ -9,6 +9,8 @@ export PAGER=less
 
 export PROJECT_HOME="$HOME/proj"
 
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH" # make homebrew happy
 export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/private/scripts" # custom
 # fpath=(/usr/local/share/zsh-completions $fpath)

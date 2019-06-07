@@ -6,6 +6,7 @@
   email = corey.zuares@syapse.com
 [alias]
   a = add
+  au = add -u
   c = commit
   p = pull
   l = log
