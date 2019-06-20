@@ -58,7 +58,10 @@ input "0:0:Atmel_maXTouch_Touchpad" {
     tap_button_map lrm
 }
 
-#  bindsym Super_L exec swaynag -m 'Meta pressed'
+input "1:1:AT_Translated_Set_2_keyboard" {
+  xkb_options altwin:escape
+}
+# bindsym Super_L exec swaynag -m 'Meta pressed'
 
 bindsym F6 exec light -U 5 # decrease screen brightness
 bindsym F7 exec light -A 5 # increase screen brightness
@@ -212,11 +215,11 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command while date +'%Y-%m-%d %l:%M %p'; do sleep 30; done
 
     colors {
         statusline #ffffff
-        background #323232
+        background #000000
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+function main() {
+  local amount="${1:?Amount expected}"
+  light -S $amount -s 'sysfs/leds/chromeos::kbd_backlight'
+}
+
+main "$@"
