@@ -13,6 +13,7 @@
   d = difftool
   lp = log -p
   it = fetch --all
+  cp = cherry-pick
   co = checkout
   com = checkout master
   cod = checkout develop

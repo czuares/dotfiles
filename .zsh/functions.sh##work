@@ -45,7 +45,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   source "/usr/local/share/chtf/chtf.sh"
-  chtf 0.11.11
+  chtf 0.11.14
 fi
 
 make-venv() {
