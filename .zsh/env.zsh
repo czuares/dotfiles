@@ -13,6 +13,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH" # make homebrew happy
 export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/private/scripts" # custom
+export PATH="$PATH:$(python3 -m site --user-base)/bin" # add python3 user installed packages
 # fpath=(/usr/local/share/zsh-completions $fpath)
 
 alias rm=trash

@@ -21,6 +21,7 @@ function powerline_precmd() {
     
     PS1="$(~/go/bin/powerline-go \
         -modules host,ssh,venv,node,cwd,perms,git,aws,kube,duration,exit \
+        -colorize-hostname \
         -duration $__DURATION \
         -shorten-gke-names \
         -newline \
@@ -29,5 +30,8 @@ function powerline_precmd() {
   unset __TIMER
 
 }
-add-zsh-hook preexec powerline_preexec
-add-zsh-hook precmd powerline_precmd
+
+if [ "$TERM" != "linux" ]; then
+  add-zsh-hook preexec powerline_preexec
+  add-zsh-hook precmd powerline_precmd
+fi
