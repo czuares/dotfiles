@@ -63,13 +63,13 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'cwood/ultisnips-terraform-snippets'
 " Testing
-Plug 'gu-fan/simpleterm.vim'
 Plug 't9md/vim-choosewin'
 Plug 'google/vim-jsonnet'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nvie/vim-flake8'
 call plug#end()
 
+" Plug 'gu-fan/simpleterm.vim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'vim-scripts/grep.vim'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
