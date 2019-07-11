@@ -70,9 +70,9 @@
   program = gpg
 [tag]
   forceSignAnnotated = true
-; [pager]
-;   diff = diff-so-fancy | less --tabs=1,5 -RFX
-;   show = diff-so-fancy | less --tabs=1,5 -RFX
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [merge]
   tool = vimdiff
   conflictstyle = diff3
