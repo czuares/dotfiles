@@ -21,7 +21,6 @@ function powerline_precmd() {
     
     PS1="$(~/go/bin/powerline-go \
         -modules host,ssh,venv,node,cwd,perms,git,aws,kube,duration,exit \
-        -colorize-hostname \
         -duration $__DURATION \
         -shorten-gke-names \
         -newline \

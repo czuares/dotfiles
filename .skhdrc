@@ -2,52 +2,56 @@
 # https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
 
 .blacklist [
-   "VNC Viewer"
+   # "VNC Viewer"
    "VMware Fusion"
 ]
 
 # open terminal
-cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+alt - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 # Navigation
-ctrl - h [
-    "iTerm2"      ~
-    "kitty"       ~
-    *             : chunkc tiling::window --focus west
-]
-ctrl - j [
-    "iTerm2"      ~
-    "kitty"       ~
-    *             : chunkc tiling::window --focus south
-]
-ctrl - k [
-    "iTerm2"      ~
-    "kitty"       ~
-    *             : chunkc tiling::window --focus north
-]
-ctrl - l [
-    "iTerm2"      ~
-    "kitty"       ~
-    *             : chunkc tiling::window --focus east
-]
+# alt - h [
+#     "iTerm2"      ~
+#     "kitty"       ~
+#     *             : chunkc tiling::window --focus west
+# ]
+# alt - j [
+#     "iTerm2"      ~
+#     "kitty"       ~
+#     *             : chunkc tiling::window --focus south
+# ]
+# alt - k [
+#     "iTerm2"      ~
+#     "kitty"       ~
+#     *             : chunkc tiling::window --focus north
+# ]
+# alt - l [
+#     "iTerm2"      ~
+#     "kitty"       ~
+#     *             : chunkc tiling::window --focus east
+# ]
+alt - h : chunkc tiling::window --focus west
+alt - j : chunkc tiling::window --focus south
+alt - k : chunkc tiling::window --focus north
+alt - l : chunkc tiling::window --focus east
 
 # Moving windows
-shift + ctrl - h : chunkc tiling::window --warp west
-shift + ctrl - j : chunkc tiling::window --warp south
-shift + ctrl - k : chunkc tiling::window --warp north
-shift + ctrl - l : chunkc tiling::window --warp east
+shift + alt - h : chunkc tiling::window --warp west
+shift + alt - j : chunkc tiling::window --warp south
+shift + alt - k : chunkc tiling::window --warp north
+shift + alt - l : chunkc tiling::window --warp east
 
 # Move focus container to workspace
-lctrl + cmd - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop) || \
+shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop) || \
                   chunkc tiling::window --send-to-desktop (chunkc get _last_active_desktop)
-lctrl + cmd - p : chunkc tiling::window --send-to-desktop prev; skhd -k "ctrl - left"
-lctrl + cmd - n : chunkc tiling::window --send-to-desktop next; skhd -k "ctrl - right"
-lctrl + cmd - 1 : chunkc tiling::window --send-to-desktop 1; skhd -k "ctrl - 1"
-lctrl + cmd - 2 : chunkc tiling::window --send-to-desktop 2; skhd -k "ctrl - 2"
-lctrl + cmd - 3 : chunkc tiling::window --send-to-desktop 3; skhd -k "ctrl - 3"
-lctrl + cmd - 4 : chunkc tiling::window --send-to-desktop 4; skhd -k "ctrl - 4"
-lctrl + cmd - 5 : chunkc tiling::window --send-to-desktop 5; skhd -k "ctrl - 5"
-lctrl + cmd - 6 : chunkc tiling::window --send-to-desktop 6; skhd -k "ctrl - 6"
+shift + alt - p : chunkc tiling::window --send-to-desktop prev; skhd -k "ctrl - left"
+shift + alt - n : chunkc tiling::window --send-to-desktop next; skhd -k "ctrl - right"
+shift + alt - 1 : chunkc tiling::window --send-to-desktop 1; skhd -k "ctrl - 1"
+shift + alt - 2 : chunkc tiling::window --send-to-desktop 2; skhd -k "ctrl - 2"
+shift + alt - 3 : chunkc tiling::window --send-to-desktop 3; skhd -k "ctrl - 3"
+shift + alt - 4 : chunkc tiling::window --send-to-desktop 4; skhd -k "ctrl - 4"
+shift + alt - 5 : chunkc tiling::window --send-to-desktop 5; skhd -k "ctrl - 5"
+shift + alt - 6 : chunkc tiling::window --send-to-desktop 6; skhd -k "ctrl - 6"
 
 # Resize windows
 lctrl + alt - h : \
