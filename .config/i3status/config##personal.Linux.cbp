@@ -8,23 +8,26 @@
 
 general {
   colors = true
-    interval = 5
+  interval = 30
 }
 
 order += "disk /"
-order += "disk /home"
-order += "ethernet _first_"
-order += "load"
+order += "wireless _first_"
+order += "battery all"
+# order += "load"
 order += "tztime local"
 
-ethernet _first_ {
-# if you use %speed, i3status requires root privileges
-  format_up = "E: %ip (%speed)"
-    format_down = "E: down"
+wireless _first_ {
+  format_up = "W: (%quality at %essid) %ip"
+  format_down = "W: down"
+}
+
+battery all {
+  format = "%status %percentage %remaining"
 }
 
 tztime local {
-  format = "%Y-%m-%d %I:%M:%S"
+  format = "%m-%d %H:%M:%S"
 }
 
 load {
@@ -32,8 +35,5 @@ load {
 }
 
 disk "/" {
-  format = "%avail"
-}
-disk "/home" {
   format = "%avail"
 }
