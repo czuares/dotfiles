@@ -1,3 +1,5 @@
+! === Colors ===
+
 ! special
 *.foreground:   #eceff1
 *.background:   #263238
@@ -36,6 +38,8 @@
 *.color15:      #eceff1
 
 
+! === Scaling ===
+
 Xft.dpi: 160
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
@@ -43,3 +47,23 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+! === URxvt ===
+
+! Extensions
+URxvt*perl-ext-common:          default,matcher,vtwheel,clipboard
+! Looks
+URxvt*font:                     xft:Hack Nerd Font Mono:size=10
+URxvt*scrollBar:                false
+URxvt.internalBorder:           10
+! Clickable urls
+URxvt.url-select.underline:     true
+URxvt.url-launcher:             /usr/bin/firefox
+URxvt.matcher.button:           1
+! Change keybinding for copy/paste
+URxvt*iso14755:                 false
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.letterSpace:              -1
+URxvt.lineSpace:                2
+

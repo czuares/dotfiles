@@ -73,8 +73,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show combi
 
 # brightness
-#bindsym F6 exec light -U 5 # decrease screen brightness
-#bindsym F7 exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec macbook-lighter-screen --dec 50 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec macbook-lighter-screen --inc 50 # increase screen brightness
 
 # screen lock
 exec xss-lock -- i3lock -n -f -c 000000 &
@@ -83,9 +83,6 @@ exec --no-startup-id "xautolock -detectsleep -time 5 -locker 'i3lock -f -c 00000
 
 # Lock screen shortcut
 bindsym $mod+Control+l exec --no-startup-id i3lock -f -c 000000
-
-# Remap Search to Escape
-# exec --no-startup-id xcape -e 'Super_L=Escape'
 
 #########################
 
