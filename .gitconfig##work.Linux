@@ -1,9 +1,9 @@
-; [commit]
-; 	gpgsign = True
+[commit]
+  ; gpgSign = true
 [user]
-	; signingkey = 11BFC2D2BD6087B6
-	name = Corey Zuares
-	email = czuares@gmail.com
+  ; signingkey = 97756AE7B8A4FDA9
+  name = Corey Zuares
+  email = corey.zuares@syapse.com
 [alias]
   a = add
   c = commit
@@ -54,6 +54,8 @@
   up = !git it && git stash && git rbm && git stash pop
   close-pr = !cb=$(git rev-parse --abbrev-ref HEAD) && git co master && git pull && git branch -D $cb
   set-upstream = !cb=$(git rev-parse --abbrev-ref HEAD) && git branch --set-upstream-to=origin/$cb $cb
+; [diff "sopsdiffer"]
+; 	textconv = sops -d
 [push]
   default = current
 [core]
@@ -68,6 +70,9 @@
   program = gpg
 [tag]
   forceSignAnnotated = true
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [merge]
   tool = vimdiff
   conflictstyle = diff3
@@ -75,3 +80,5 @@
   prompt = false
 [github]
   user = czuares
+[diff "sopsdiffer"]
+	textconv = sops -d

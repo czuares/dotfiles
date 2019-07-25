@@ -42,7 +42,7 @@
   stashes = stash list
   stash-preview = stash show -p
   branches = !git --no-pager branch --list
-  delremotebranch = push origin --delete 
+  delremotebranch = push origin --delete
   delremotetag = push --delete origin
   deltag = tag --delete
   pushtag = push origin --tags
@@ -62,7 +62,7 @@
 [push]
   default = current
 [core]
-  excludesfile = /Users/czuares/.gitignore
+  excludesfile = $HOME/.gitignore
 [diff]
   tool = vimdiff
 [difftool]

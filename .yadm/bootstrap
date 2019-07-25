@@ -2,6 +2,8 @@
 
 system_type=$(uname -s)
 
+mkdir -p $HOME/.local/bin
+
 if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
     vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
@@ -35,5 +37,11 @@ if [[ "$system_type" == "Darwin" ]]; then
     echo "Installing mpm"
     pipx install meta-package-manager
     ln -s "$(command -v mpm)" /usr/local/sbin/mpm
+  fi
+
+elif [[ "$system_type" == "Linux" ]]; then
+  if ! command -v diff-so-fancy 2>&1; then
+    curl -L "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy" > ~/.local/bin/diff-so-fancy
+    chmod +x ~/.local/bin/diff-so-fancy
   fi
 fi
