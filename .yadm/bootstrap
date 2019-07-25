@@ -9,9 +9,9 @@ if command -v vim >/dev/null 2>&1; then
     vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
 
-if command -v pipsi >/dev/null 2>&1; then
-  echo "Installing pipsi"
-  curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
+if command -v pipx >/dev/null 2>&1; then
+  echo "Installing pipx"
+  python3 -m pip install --user pipx
 fi
 
 if [[ "$system_type" == "Darwin" ]]; then
@@ -35,7 +35,8 @@ if [[ "$system_type" == "Darwin" ]]; then
 
   if command -v mpm >/dev/null 2>&1; then
     echo "Installing mpm"
-    pipsi --bin-dir /usr/local/sbin/ install meta-package-manager
+    pipx install meta-package-manager
+    ln -s "$(command -v mpm)" /usr/local/sbin/mpm
   fi
 
 elif [[ "$system_type" == "Linux" ]]; then

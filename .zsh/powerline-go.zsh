@@ -30,5 +30,8 @@ function powerline_precmd() {
   unset __TIMER
 
 }
-add-zsh-hook preexec powerline_preexec
-add-zsh-hook precmd powerline_precmd
+
+if [ "$TERM" != "linux" ]; then
+  add-zsh-hook preexec powerline_preexec
+  add-zsh-hook precmd powerline_precmd
+fi

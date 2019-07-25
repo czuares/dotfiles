@@ -58,6 +58,7 @@ Plug 'mileszs/ack.vim'
 Plug 'dkprice/vim-easygrep'
 Plug 'junegunn/fzf'
 Plug 'dyng/ctrlsf.vim'
+Plug 'jremmen/vim-ripgrep'
 " Ultisnips
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'

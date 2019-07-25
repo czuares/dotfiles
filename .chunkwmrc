@@ -79,6 +79,7 @@ chunkc tiling::rule --owner \"Dictionary\" --state float &
 chunkc tiling::rule --owner \"mpv\" --state float &
 chunkc tiling::rule --owner \"The Unarchiver\" --state float &
 chunkc tiling::rule --owner \"Aviatrix VPN Client\" --state float &
+chunkc tiling::rule --owner \"Google Play Music Desktop Player\" --state float &
 chunkc tiling::rule --owner \"VirtualBox\" --name \"Oracle VM VirtualBox Manager\" --state float &
 # chunkc tiling::rule --owner \"YakYak\" --desktop 1 --warp west --follow-desktop &
 # chunkc tiling::rule --owner \"Google Play Music Desktop Player\" --warp east --desktop 1 --follow-desktop &

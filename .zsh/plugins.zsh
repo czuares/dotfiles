@@ -12,7 +12,7 @@ source $ZPLUG_HOME/init.zsh
 zplug "zplug/zplug"
 zplug "plugins/z",  from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
-# zplug "larkery/zsh-histdb", from:github
+zplug "larkery/zsh-histdb", from:github
 zplug "zsh-users/zsh-autosuggestions", at:develop
 zplug "zsh-users/zsh-completions"
 zplug "zdharma/history-search-multi-word"
