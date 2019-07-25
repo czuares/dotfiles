@@ -1,8 +1,13 @@
 #!/usr/bin/env zsh
-#
+
 if [[ ! -f $HOME/go/bin/powerline-go ]]; then
     echo "Updating powerline-go"
     go get -u github.com/justjanne/powerline-go
+fi
+
+FONT_MODE="compatible"
+if [ "$TERM" != "linux" ]; then
+  FONT_MODE="patched"
 fi
 
 #### Powerline-go configuration
@@ -23,15 +28,12 @@ function powerline_precmd() {
         -modules host,ssh,venv,node,cwd,perms,git,aws,kube,duration,exit \
         -duration $__DURATION \
         -shorten-gke-names \
-        -mode patched \
+        -mode $FONT_MODE \
         -newline \
         -shell zsh \
         -error $__ERRCODE)"
   unset __TIMER
-
 }
 
-if [ "$TERM" != "linux" ]; then
-  add-zsh-hook preexec powerline_preexec
-  add-zsh-hook precmd powerline_precmd
-fi
+add-zsh-hook preexec powerline_preexec
+add-zsh-hook precmd powerline_precmd
