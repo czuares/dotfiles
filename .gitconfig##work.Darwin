@@ -62,7 +62,7 @@
 [push]
   default = current
 [core]
-  excludesfile = $HOME/.gitignore
+  excludesfile = ~/.gitignore
 [diff]
   tool = vimdiff
 [difftool]
