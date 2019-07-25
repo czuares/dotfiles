@@ -7,7 +7,7 @@
 ]
 
 # open terminal
-alt - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 # Navigation
 # alt - h [
