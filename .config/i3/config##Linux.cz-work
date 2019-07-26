@@ -31,11 +31,14 @@ set $right l
 
 
 set $height 34
-set $default_gaps_inner 10
-set $default_gaps_outer 2
 
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# i3-gaps
+smart_gaps on
+smart_borders on
+for_window [class="^.*"] border pixel 0
+
+gaps inner 6
+gaps outer 0
 
 # workspace $ws1 gaps inner 0
 # workspace $ws1 gaps outer 0
@@ -75,6 +78,15 @@ bindsym $mod+d exec --no-startup-id rofi -show combi
 # brightness
 bindsym XF86MonBrightnessDown exec macbook-lighter-screen --dec 50 # decrease screen brightness
 bindsym XF86MonBrightnessUp exec macbook-lighter-screen --inc 50 # increase screen brightness
+
+# keyboard brightness
+bindsym XF86KbdBrightnessUp exec macbook-lighter-kbd --inc 25
+bindsym XF86KbdBrightnessDown exec macbook-lighter-kbd --dec 25 
+
+# audio
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 2 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 2 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 2 toggle # mute sound
 
 # screen lock
 exec xss-lock -- i3lock -n -f -c 000000 &
@@ -244,3 +256,5 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id dunst &
 exec --no-startup-id pasystray &
 exec --no-startup-id redshift-gtk &
+#exec --no-startup-id xsetroot -solid "#000000"
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
