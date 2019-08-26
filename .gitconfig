@@ -1,17 +1,15 @@
-[commit]
-  ; gpgSign = true
-[user]
-  ; signingkey = 97756AE7B8A4FDA9
-  name = Corey Zuares
-  email = corey.zuares@syapse.com
+[include]
+  path = ~/.gitconfig.d/config
 [alias]
   a = add
+  au = add -u
   c = commit
   p = pull
   l = log
   d = difftool
   lp = log -p
   it = fetch --all
+  cp = cherry-pick
   co = checkout
   com = checkout master
   cod = checkout develop
@@ -54,8 +52,7 @@
   up = !git it && git stash && git rbm && git stash pop
   close-pr = !cb=$(git rev-parse --abbrev-ref HEAD) && git co master && git pull && git branch -D $cb
   set-upstream = !cb=$(git rev-parse --abbrev-ref HEAD) && git branch --set-upstream-to=origin/$cb $cb
-; [diff "sopsdiffer"]
-; 	textconv = sops -d
+  rehook = !git fixup --allow-empty && git push
 [push]
   default = current
 [core]

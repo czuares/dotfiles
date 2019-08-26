@@ -65,5 +65,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " " change dir to opened buffer
 " autocmd BufEnter * silent! lcd %:p:h
 
+" Strip whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
 " fzf (brew installed)
 set rtp+=/usr/local/opt/fzf

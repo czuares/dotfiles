@@ -1,0 +1,7 @@
+[commit]
+  gpgSign = true
+[user]
+  signingkey = 97756AE7B8A4FDA9
+  name = Corey Zuares
+  email = corey.zuares@syapse.com
+
