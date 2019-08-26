@@ -29,13 +29,15 @@ set $down j
 set $up k
 set $right l
 
-
 set $height 34
-set $default_gaps_inner 10
-set $default_gaps_outer 2
 
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# i3-gaps
+smart_gaps on
+smart_borders on
+for_window [class="^.*"] border pixel 0
+
+gaps inner 6
+gaps outer 0
 
 # workspace $ws1 gaps inner 0
 # workspace $ws1 gaps outer 0
@@ -44,7 +46,7 @@ gaps outer $default_gaps_outer
 # workspace $ws10 gaps inner 0
 # workspace $ws10 gaps outer 0
 
-workspace_auto_back_and_forth yes
+# workspace_auto_back_and_forth yes
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
 
@@ -249,9 +251,11 @@ exec --no-startup-id compton -b
 #exec --no-startup-id blueman-applet &
 #exec --no-startup-id redshift-gtk &
 exec --no-startup-id dunst &
-exec --no-startup-id pasystray &
+# exec --no-startup-id pasystray &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id lxsession &
+exec --no-startup-id hsetroot -solid black
 
 for_window [class="urxvt"] border none
-assign [class="Firefox"] → $ws2
+for_window [class="keybase"] floating enable
+# assign [class="Firefox"]  $ws2

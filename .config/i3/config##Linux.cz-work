@@ -12,7 +12,6 @@ set_from_resource $darkyellow  color3  #000000
 set_from_resource $yellow      color11 #000000
 set_from_resource $darkblue    color4  #000000
 set_from_resource $blue        color12 #000000
-set_from_resource $darkmagenta color5  #000000
 set_from_resource $magenta     color13 #000000
 set_from_resource $darkcyan    color6  #000000
 set_from_resource $cyan        color14 #000000
@@ -28,7 +27,6 @@ set $left h
 set $down j
 set $up k
 set $right l
-
 
 set $height 34
 
@@ -47,7 +45,7 @@ gaps outer 0
 # workspace $ws10 gaps inner 0
 # workspace $ws10 gaps outer 0
 
-workspace_auto_back_and_forth yes
+# workspace_auto_back_and_forth yes
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
 
@@ -84,9 +82,9 @@ bindsym XF86KbdBrightnessUp exec macbook-lighter-kbd --inc 25
 bindsym XF86KbdBrightnessDown exec macbook-lighter-kbd --dec 25 
 
 # audio
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 2 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 2 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 2 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # screen lock
 exec xss-lock -- i3lock -n -f -c 000000 &
@@ -200,15 +198,15 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym $left resize shrink width 10 px or 10 ppt
+    bindsym $up resize grow height 10 px or 10 ppt
+    bindsym $down resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Up resize grow height 10 px or 10 ppt
+    bindsym Down resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
 
   # back to normal: Enter or Escape or $mod+r
@@ -252,9 +250,8 @@ bar {
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet &
 #exec --no-startup-id blueman-applet &
-#exec --no-startup-id redshift-gtk &
 exec --no-startup-id dunst &
 exec --no-startup-id pasystray &
 exec --no-startup-id redshift-gtk &
-#exec --no-startup-id xsetroot -solid "#000000"
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+exec --no-startup-id hsetroot -solid black
+# exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
