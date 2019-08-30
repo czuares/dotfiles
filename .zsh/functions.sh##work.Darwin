@@ -75,11 +75,7 @@ git-set-upstream() {
 }
 
 gtop(){
-  cd "$(git rev-parse --show-toplevel)" || true 
-}
-
-okta-pass() {
-  lpass show -cp okta.com
+  cd "$(git rev-parse --show-toplevel)" || true
 }
 
 kpod() {
