@@ -12,7 +12,7 @@ map <leader>nt :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tp :tabprev<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 
 " CloseBuffers settings
 nnoremap <silent> <leader>q :CloseBuffersMenu<CR>
@@ -32,3 +32,7 @@ map <leader>gg gg=G''
 
 " Format JSON helper
 com! FormatJSON %!python -m json.tool
+
+" Double space for fold/unfold
+nnoremap <silent> <Space><Space> @=(foldlevel('.')?'za':"zf")<CR>
+

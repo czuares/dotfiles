@@ -21,6 +21,9 @@ set expandtab " Use spaces instead of tabs
 set shiftwidth=0
 set tabstop=2
 
+" Folding
+set foldmethod=syntax
+
 " Linebreak on 500 characters
 set lbr
 set tw=500
