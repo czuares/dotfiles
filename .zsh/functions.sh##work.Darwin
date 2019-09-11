@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-source virtualenvwrapper.sh
+# source virtualenvwrapper.sh
+
+# source pyenv
+if command -v pyenv &>/dev/null; then
+  eval "$(pyenv init -)"
+  pyenv virtualenvwrapper
+fi
+
 source ~/.zsh/k8scontext.zsh
 
 # source <(kubectl completion zsh)
@@ -8,7 +15,6 @@ source ~/.zsh/k8scontext.zsh
 
 # source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh
-# eval "$(pyenv init -)"
 
 # Source custom files
 for f in ~/private/scripts/source/*
@@ -45,7 +51,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   source "/usr/local/share/chtf/chtf.sh"
-  chtf 0.11.14
+  chtf 0.12.6
 fi
 
 make-venv() {
