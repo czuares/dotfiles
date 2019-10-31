@@ -65,6 +65,9 @@ autocmd FileType markdown setlocal spell
 " Set gotmpl to helm
 autocmd BufRead,BufNewFile *.gotmpl set filetype=helm
 
+" CHange tf linters because of https://github.com/dense-analysis/ale/issues/2762
+" autocmd BufRead,BufNewFile *.tf let b:ale_linters = { 'terraform': ['terraform'] }
+
 " close vim if nerdtree is only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

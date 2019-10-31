@@ -27,6 +27,7 @@ alias ka="k8s-auth"
 
 export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
 export HOMEBREW_GITHUB_API_TOKEN=$(<~/.homebrew-token)
+export OKTA_TOKEN=$(<~/.okta-token)
 
 # Setup GPG
 # GPG_TTY=$(tty)
@@ -51,7 +52,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   source "/usr/local/share/chtf/chtf.sh"
-  chtf 0.12.6
+  chtf 0.12.12
 fi
 
 make-venv() {

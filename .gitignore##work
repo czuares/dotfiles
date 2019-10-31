@@ -10,5 +10,6 @@
 test.sh
 **/helm/output
 *.*.bak
+.idea/
 scratch/
 .python-version
