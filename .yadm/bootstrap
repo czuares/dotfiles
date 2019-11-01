@@ -6,7 +6,7 @@ mkdir -p $HOME/.local/bin
 
 if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
-    vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+    vim +'PlugInstall --sync' +qa
 fi
 
 if command -v pipx >/dev/null 2>&1; then
