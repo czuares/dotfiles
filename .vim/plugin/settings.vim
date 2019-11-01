@@ -45,7 +45,11 @@ set undoreload=10000        " number of lines to save for undo
 set background=dark
 " colorscheme one
 " colorscheme orbital
-colorscheme hybrid_material
+try
+  colorscheme hybrid_material
+catch
+  " ignore
+endtry
 " colorscheme zenburn peaksea janah onedark
 " autocmd ColorScheme janah highlight Normal ctermbg=235
 

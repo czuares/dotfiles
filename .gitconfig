@@ -12,14 +12,13 @@
   cp = cherry-pick
   co = checkout
   com = !git checkout $(git hb)
-  cod = com
   cob = checkout -b
   s = status
   st = status
   b = branch
   bra = branch -a
   staged = diff --cached
-  stg = diff --cached
+  stg = staged
   cm = commit
   amend = commit --amend
   fixup = commit --fixup HEAD
@@ -27,8 +26,7 @@
   prb = pull --rebase
   hist = log --oneline --decorate
   rb = rebase
-  rbm = !git pull origin master && git rebase origin/master
-  rbd = !git pull origin develop && git rebase origin/develop
+  rbm = !hb=$(git hb) && git pull origin $hb && git rebase origin/$hb
   rbc = rebase --continue
   rba = rebase --abort
   rbs = rebase --skip
