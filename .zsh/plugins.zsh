@@ -3,8 +3,8 @@
 # Source zplug
 export ZPLUG_HOME=$HOME/.zplug
 if [[ ! -f $ZPLUG_HOME/init.zsh ]]; then
-    echo "Updating zplug"
-   git clone https://github.com/zplug/zplug $ZPLUG_HOME
+  echo "Updating zplug"
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
 fi
 
 source $ZPLUG_HOME/init.zsh
@@ -47,12 +47,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    else
-        echo
-    fi
+  echo; zplug install
 fi
 
 zplug load
