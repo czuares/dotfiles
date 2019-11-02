@@ -3,6 +3,7 @@
 # Source zplug
 export ZPLUG_HOME=$HOME/.zplug
 if [[ ! -f $ZPLUG_HOME/init.zsh ]]; then
+  rm -rf "$ZPLUG_HOME"
   echo "Updating zplug"
   git clone https://github.com/zplug/zplug $ZPLUG_HOME
 fi
