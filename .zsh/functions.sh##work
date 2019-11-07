@@ -2,9 +2,6 @@
 
 source ~/.zsh/k8scontext.zsh
 
-# Work aliases
-alias ka="k8s-auth"
-
 export PACKAGECLOUD_TOKEN=$(<~/private/keys/token/packagecloud-token)
 export HOMEBREW_GITHUB_API_TOKEN=$(<~/private/keys/token/homebrew-token)
 export OKTA_TOKEN=$(<~/private/keys/token/okta)
