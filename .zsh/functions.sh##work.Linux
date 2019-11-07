@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ~/.zsh/functions.sh##work
+
 source virtualenvwrapper.sh
 
 if [[ -z "$SSH_AUTH_SOCK" ]]; then
@@ -10,12 +12,4 @@ if [[ -z "$SSH_AUTH_SOCK" ]]; then
   if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
     export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
   fi
-fi
-
-# Source custom files
-if [[ -d ~/private/scripts ]]; then
-  for f in ~/private/scripts/source/*
-  do
-    source "$f"
-  done
 fi

@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+source ~/.zsh/k8scontext.zsh
+
+# Work aliases
+alias ka="k8s-auth"
+
+export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
+export HOMEBREW_GITHUB_API_TOKEN=$(<~/.homebrew-token)
+export OKTA_TOKEN=$(<~/.okta-token)
+
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/private/scripts"
+export PATH="$PATH:$HOME/go/bin"
+
+make-venv() {
+  local name=${1?Project name is required}
+  mkvirtualenv -p python3.6 -a ~/proj/$project $project
+}
+
+ssh-circleci() {
+  : ${1?Expected parameters <port> <host>}
+  ssh -o "UserKnownHostsFile /dev/null" \
+    -o "StrictHostKeyChecking no" \
+    -o "LogLevel ERROR" -p "$@"
+  }
+
+kpod() {
+  local name="${1?Expected app name}"
+
+  kubectl get pod \
+    -l app="$name" \
+    --no-headers \
+    -o custom-columns=:metadata.name | head -n 1
+  }
+
+kexec() {
+  local name="${1?Expected app name}"
+  : "${2?Expected command}"
+  kubectl exec -it "$(kpod "$name")" "${@:2}"
+}
+
+klog () {
+  local name="${1?Expected app name}"
+  kubectl logs -f "$(kpod "$name")"
+}
+
+kwatch() {
+  watch -n "${2:-5}" "kubectl get $1"
+}
+
+kgetpodsbyhost() {
+  : "${1?Expected host name}"
+
+  kubectl get po --all-namespaces \
+    --field-selector=spec.nodeName="${1}"
+}
+
+k-dump-running-pods-host() {
+  kubectl get pod \
+    -o=custom-columns=NAME:.metadata.name,NODE:.spec.nodeName,NS:.metadata.namespace \
+    --field-selector=status.phase=Running \
+    --all-namespaces
+}

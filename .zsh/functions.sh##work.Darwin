@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ~/.zsh/functions.sh##work
+
 # source virtualenvwrapper.sh
 
 # source pyenv
@@ -8,26 +10,11 @@ if command -v pyenv &>/dev/null; then
   pyenv virtualenvwrapper
 fi
 
-source ~/.zsh/k8scontext.zsh
-
 # source <(kubectl completion zsh)
 # source ~/.nix-profile/etc/profile.d/nix.sh
 
 # source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh
-
-# Source custom files
-for f in ~/private/scripts/source/*
-do
-  source "$f"
-done
-
-# Work aliases
-alias ka="k8s-auth"
-
-export PACKAGECLOUD_TOKEN=$(<~/.packagecloud-token)
-export HOMEBREW_GITHUB_API_TOKEN=$(<~/.homebrew-token)
-export OKTA_TOKEN=$(<~/.okta-token)
 
 # Setup GPG
 # GPG_TTY=$(tty)
@@ -55,75 +42,29 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   chtf 0.12.12
 fi
 
-make-venv() {
-  : ${1?Project name is required}
-  mkvirtualenv -p python3.6 -a ~/proj/$1 $1
+brew() {
+  local dump=false;
+  if [[ $# -gt 0 ]]; then
+    case "$1" in
+      *install|*tap)
+        dump=true;
+        ;;
+      cask)
+        if [[ $# -gt 2 ]]; then
+          case "$2" in
+            *install)
+              dump=true;
+              ;;
+          esac
+        fi
+        ;;
+    esac
+  fi
+  command brew "$@"
+
+  if $dump; then
+    echo "Updating Brewfile"
+    command brew bundle dump --force --file="$HOME/.config/brew/Brewfile"
+  fi
 }
 
-ssh-circleci() {
-  : ${1?Expected parameters <port> <host>}
-  ssh -o "UserKnownHostsFile /dev/null" \
-    -o "StrictHostKeyChecking no" \
-    -o "LogLevel ERROR" -p "$@"
-  }
-
-dedupe-history() {
-  cp ~/.zsh_history{,-old}
-  tmpFile=$(mktemp)
-  awk -F ";" '!seen[$2]++' ~/.zsh_history > $tmpFile
-  # echo $tmpFile
-  mv $tmpFile ~/.zsh_history
-}
-
-git-set-upstream() {
-  local branch="$(git rev-parse --abbrev-ref HEAD)"
-  echo "Current branch $branch"
-  git branch --set-upstream-to=origin/$branch $branch
-}
-
-gtop(){
-  cd "$(git rev-parse --show-toplevel)" || true
-}
-
-kpod() {
-  : "${1?Expected app name}"
-  local name="$1"
-
-  kubectl get pod \
-    -l app="$name" \
-    --no-headers \
-    -o custom-columns=:metadata.name | head -n 1
-  }
-
-kexec() {
-  : "${1?Expected app name}"
-  : "${2?Expected command}"
-  local name="$1"
-
-  kubectl exec -it "$(kpod "$name")" "${@:2}"
-}
-
-klog () {
-  : "${1?Expected app name}"
-  local name="$1"
-
-  kubectl logs -f "$(kpod "$name")"
-}
-
-kwatch() {
-  watch -n "${2:-5}" "kubectl get $1"
-}
-
-kgetpodsbyhost() {
-  : "${1?Expected host name}"
-
-  kubectl get po --all-namespaces \
-    --field-selector=spec.nodeName="${1}"
-}
-
-k-dump-running-pods-host() {
-  kubectl get pod \
-    -o=custom-columns=NAME:.metadata.name,NODE:.spec.nodeName,NS:.metadata.namespace \
-    --field-selector=status.phase=Running \
-    --all-namespaces
-}
