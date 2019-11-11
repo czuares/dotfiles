@@ -65,6 +65,8 @@ Plug 'cwood/ultisnips-terraform-snippets'
 Plug 't9md/vim-choosewin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nvie/vim-flake8'
+Plug 'liuchengxu/vim-clap'
+Plug 'rbong/vim-flog'
 call plug#end()
 
 " Plug 'majutsushi/tagbar'

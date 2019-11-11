@@ -59,3 +59,9 @@ k-dump-running-pods-host() {
     --field-selector=status.phase=Running \
     --all-namespaces
 }
+
+kdebug() {
+  kubectl run --generator=run-pod/v1 \
+    -it --rm --image=nicolaka/netshoot \
+    debug bash
+}

@@ -15,7 +15,7 @@ map <leader>tp :tabprev<cr>
 map <leader>tm :tabmove
 
 " CloseBuffers settings
-nnoremap <silent> <leader>q :CloseBuffersMenu<CR>
+nnoremap <silent> <leader>q :Bdelete menu<CR>
 
 " Vim hard mode :)
 nnoremap <up> <nop>
