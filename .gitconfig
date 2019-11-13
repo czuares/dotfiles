@@ -52,6 +52,7 @@
   set-upstream = !cb=$(git rev-parse --abbrev-ref HEAD) && git branch --set-upstream-to=origin/$cb $cb
   rehook = !git fixup --allow-empty && git push
   hb = !git symbolic-ref --short refs/remotes/origin/HEAD | sed 's@^origin/@@'
+  fix-origin = !git checkout master && git remote set-head origin --auto
 [push]
   default = current
 [core]

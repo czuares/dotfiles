@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ~/.zsh/functions.sh##work
+source ~/.zsh/functions.sh##c.work
 
 # source virtualenvwrapper.sh
 
