@@ -6,9 +6,7 @@ export PACKAGECLOUD_TOKEN=$(<~/private/keys/token/packagecloud-token)
 export HOMEBREW_GITHUB_API_TOKEN=$(<~/private/keys/token/homebrew-token)
 export OKTA_TOKEN=$(<~/private/keys/token/okta)
 
-export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/private/scripts"
-export PATH="$PATH:$HOME/go/bin"
 
 make-venv() {
   local name=${1?Project name is required}
