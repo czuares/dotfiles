@@ -21,10 +21,10 @@ ssh-circleci() {
   }
 
 kpod() {
-  local name="${1?Expected app name}"
+  local name="${1?Expected release name}"
 
   kubectl get pod \
-    -l app="$name" \
+    -l release="$name" \
     --no-headers \
     -o custom-columns=:metadata.name | head -n 1
   }
@@ -33,6 +33,34 @@ kexec() {
   local name="${1?Expected app name}"
   : "${2?Expected command}"
   kubectl exec -it "$(kpod "$name")" "${@:2}"
+}
+
+kenter() {
+  local name cmd=("bash")
+  if [[ $# -eq 0 ]]; then
+    name=$(mypaste) # provided script
+    if [[ -n "$name" ]]; then
+      >&2 echo "Clipboard is not empty"
+    else
+      >&2 echo "Expected pod name as argument or clipboard but found neither"
+      return 2
+    fi
+  else
+    >&2 echo "Arguments provided"
+    if [[ $# -eq 1 ]]; then
+      name="$1"
+    fi
+    if [[ $# -gt 1 ]]; then
+      cmd=("${@:2}")
+    fi
+  fi
+  if [[ "$name" =~ -[0-9a-z]{4} ]]; then
+    >&2 echo "Found valid pod name: $name"
+  else
+    >&2 echo "Did not find valid pod name"
+    return 2
+  fi
+  kubectl exec -it "$name" "${cmd[*]}"
 }
 
 klog () {
