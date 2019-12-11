@@ -27,19 +27,19 @@ function k8s_color() {
         done
     fi
 
-    # if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
-    #     local profile;
-    #     case "$k8scontext" in
-    #         "$PROD_PROFILE_NAME")
-    #             profile="$PROD_ITERM_PROFILE"
-    #             ;;
-    #         *)
-    #             profile="Default"
-    #             ;;
-    #     esac
+    if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
+        local profile;
+        case "$k8scontext" in
+            "$PROD_PROFILE_NAME")
+                profile="$PROD_ITERM_PROFILE"
+                ;;
+            *)
+                profile="Default"
+                ;;
+        esac
 
-    #     echo -ne "\033]50;SetProfile=$profile\a"
-    # fi
+        echo -ne "\033]50;SetProfile=$profile\a"
+    fi
 }
 
 function complete_callback() {
