@@ -3016,7 +3016,7 @@
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>Hotkey</key>
 	<true/>
 	<key>HotkeyChar</key>
@@ -3099,9 +3099,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>495 185 708 165 0 0 1920 1200 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>1080 1042 400 129 0 0 2560 1440 </string>
+	<string>3640 1042 400 129 2560 0 2560 1440 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>970 791 620 392 0 0 2560 1417 </string>
+	<string>970 786 620 392 0 0 2560 1440 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 207 599 388 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -3109,7 +3109,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1200 0 0 1920 1200 </string>
+	<string>0 0 2560 1440 0 0 2560 1440 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -4433,6 +4433,7 @@
 		<string>3.3.4</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
+		<string>3.3.7</string>
 		<string>3.2.9</string>
 		<string>3.3.0</string>
 		<string>3.3.2</string>
@@ -4449,7 +4450,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{803, 887}</string>
+		<string>{224, 808}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -4460,7 +4461,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>213A3600-E688-474D-8F82-350AFAF87386</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>38</integer>
+	<integer>54</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -5233,7 +5234,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-11-04T15:03:31Z</date>
+	<date>2020-01-03T16:45:20Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -5243,7 +5244,7 @@
 	<key>Selection Respects Soft Boundaries</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SoundForEsc</key>
@@ -5265,7 +5266,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.6</string>
+	<string>3.3.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

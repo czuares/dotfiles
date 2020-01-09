@@ -3,6 +3,7 @@
 [alias]
   a = add
   au = add -u
+  sh = add -p
   c = commit
   p = pull
   l = log
@@ -40,7 +41,6 @@
   delremotetag = push --delete origin
   deltag = tag --delete
   pushtag = push origin --tags
-  sh = add -p
   discard = checkout -p
   psh = push -u
   ready = !git rebase -i --autosquash master
@@ -53,6 +53,7 @@
   rehook = !git fixup --allow-empty && git push
   hb = !git symbolic-ref --short refs/remotes/origin/HEAD | sed 's@^origin/@@'
   fix-origin = !git checkout master && git remote set-head origin --auto
+  gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
 [push]
   default = current
 [core]

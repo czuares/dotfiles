@@ -39,7 +39,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   source "/usr/local/share/chtf/chtf.sh"
-  chtf 0.12.12
+  chtf 0.12.18
 fi
 
 brew() {
