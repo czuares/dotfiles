@@ -14,7 +14,7 @@ if command -v pipx >/dev/null 2>&1; then
   python3 -m pip install --user pipx
 fi
 
-if [[ "$system_type" == "Darwin" ]]; then
+if [[ "$system_type" =~ "Darwin" ]]; then
 
   # install homebrew if it's missing
   if ! command -v brew >/dev/null 2>&1; then

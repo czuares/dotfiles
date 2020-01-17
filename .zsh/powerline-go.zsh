@@ -23,7 +23,7 @@ function powerline_precmd() {
         local __ERT=$SECONDS
         __DURATION="$(($__ERT - ${__TIMER:-__ERT}))"
     fi
-    
+
     PS1="$(~/go/bin/powerline-go \
         -modules host,ssh,venv,node,cwd,perms,git,aws,kube,duration,exit \
         -duration $__DURATION \
