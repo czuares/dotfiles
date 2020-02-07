@@ -67,6 +67,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'nvie/vim-flake8'
 Plug 'liuchengxu/vim-clap'
 Plug 'rbong/vim-flog'
+Plug 'goerz/jupytext.vim'
 call plug#end()
 
 " Plug 'majutsushi/tagbar'
