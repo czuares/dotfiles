@@ -11,9 +11,11 @@
   lp = log -p
   it = fetch --all
   cp = cherry-pick
-  co = checkout
+  #co = checkout
+  co = "!f() { read -rp 'Checkout branch name: ' branch && git checkout $branch ;}; f"
   com = !git checkout $(git hb)
-  cob = checkout -b
+  #cob = checkout -b
+  cob = "!f() { read -rp 'Create branch name: ' branch && git checkout -b $branch ;}; f"
   s = status
   st = status
   b = branch
