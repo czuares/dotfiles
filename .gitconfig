@@ -11,10 +11,15 @@
   lp = log -p
   it = fetch --all
   cp = cherry-pick
-  #co = checkout
-  co = "!f() { read -rp 'Checkout branch name: ' branch && git checkout $branch ;}; f"
+  co = checkout
+  cov = !git checkout $(git choose-branch)
+  corv = !git checkout $(git choose-remote-branch)
+  choose-branch = !git --no-pager branch -vv | fzf +m | sed 's/* //' | awk '{print $1}' # branch chooser helper
+  choose-remote-branch = !git branch -a | fzf +m | sed 's/* //' | awk '{print $1}' # branch chooser helper
+  delbranch = !git branch -D $(git choose-branch)
+  ; cov = "!f() { local branch=$(git --no-pager branch -vv | fzf +m | sed 's/* //' | awk '{print $1}') && git checkout $branch; }; f"
+  ; cob = checkout -b
   com = !git checkout $(git hb)
-  #cob = checkout -b
   cob = "!f() { read -rp 'Create branch name: ' branch && git checkout -b $branch ;}; f"
   s = status
   st = status

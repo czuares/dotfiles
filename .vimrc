@@ -54,7 +54,7 @@ Plug 'tarekbecker/vim-yaml-formatter'
 " Searching
 Plug 'mileszs/ack.vim'
 Plug 'dkprice/vim-easygrep'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dyng/ctrlsf.vim'
 Plug 'jremmen/vim-ripgrep'
 " Ultisnips

@@ -2,7 +2,7 @@
 
 system_type=$(uname -s)
 
-mkdir -p $HOME/.local/bin
+mkdir -p "$HOME/.local/bin"
 
 if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
@@ -37,6 +37,17 @@ if [[ "$system_type" =~ "Darwin" ]]; then
     echo "Installing mpm"
     pipx install meta-package-manager
     ln -s "$(command -v mpm)" /usr/local/sbin/mpm
+  fi
+
+  if command -v kubens >/dev/null 2>&1; then
+    mkdir -p ~/workspace
+    pushd ~/workspace || return 1
+    git clone git@github.com:aca/go-kubectx.git
+    pushd go-kubectx || return 1
+    go install ./cmd/kubens
+    go install ./cmd/kubectx
+    popd || return 1
+    popd || return 1
   fi
 
 elif [[ "$system_type" == "Linux" ]]; then

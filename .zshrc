@@ -42,15 +42,12 @@ setopt hist_verify
 # setopt append_history
 
 # source /usr/local/etc/profile.d/z.sh
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.zsh/functions-core.sh
 source ~/.zsh/env-core.zsh
 source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
-
-# init nix
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # compinit
 # zprof

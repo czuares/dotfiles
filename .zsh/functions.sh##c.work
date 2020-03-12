@@ -8,6 +8,13 @@ export OKTA_TOKEN=$(<~/private/keys/token/okta)
 
 export PATH="$PATH:$HOME/private/scripts"
 
+make-venv-here() {
+  local dir name
+  dir="$(pwd)"
+  name="$(basename "$dir")"
+  mkvirtualenv -a "$dir" "$name"
+}
+
 make-venv() {
   local name=${1?Project name is required}
   mkvirtualenv -p python3.6 -a ~/proj/$project $project

@@ -17,7 +17,8 @@ zplug "larkery/zsh-histdb", from:github
 zplug "zsh-users/zsh-autosuggestions", at:develop
 zplug "zsh-users/zsh-completions"
 zplug "zdharma/history-search-multi-word"
-zplug "plugins/git",  from:oh-my-zsh
+# zplug "plugins/git",  from:oh-my-zsh
+# zplug "wfxr/forgit"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # zplug "plugins/virtualenvwrapper",  from:oh-my-zsh
 
