@@ -1,8 +1,18 @@
 #!/usr/bin/env zsh
+VERSION="1.15.0"
+BIN_PATH="$HOME/.local/bin/powerline-go"
 
-if [[ ! -f $HOME/go/bin/powerline-go ]]; then
-    echo "Updating powerline-go"
-    go get -u github.com/justjanne/powerline-go
+if [[ ! -f "$BIN_PATH" ]]; then
+  echo "Installing powerline-go"
+  if [[ $(uname -s) =~ "Darwin" ]]; then
+    system_type="darwin"
+  else
+    system_type="linux"
+  fi
+  curl -sfLo "$BIN_PATH" \
+    "https://github.com/justjanne/powerline-go/releases/download/v${VERSION}/powerline-go-${system_type}-amd64"
+  chmod a+x "$BIN_PATH"
+  echo "powerline-go installed"
 fi
 
 FONT_MODE="compatible"
@@ -24,7 +34,7 @@ function powerline_precmd() {
         __DURATION="$(($__ERT - ${__TIMER:-__ERT}))"
     fi
 
-    PS1="$(~/go/bin/powerline-go \
+    PS1="$($BIN_PATH \
         -modules host,ssh,venv,node,cwd,perms,git,aws,kube,duration,exit \
         -duration $__DURATION \
         -shorten-gke-names \
