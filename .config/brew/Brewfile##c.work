@@ -30,7 +30,7 @@ brew "go"
 brew "dep"
 brew "diff-so-fancy"
 brew "direnv"
-brew "docker"
+brew "docker", link: false
 brew "docker-clean"
 brew "docker-credential-helper-ecr"
 brew "docker-machine-driver-xhyve"
