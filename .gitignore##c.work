@@ -13,3 +13,4 @@ test.sh
 .idea/
 scratch/
 .python-version
+.mypy_cache/
