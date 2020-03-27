@@ -53,7 +53,7 @@
   ready = !git rebase -i --autosquash master
   pr = !git push -u && hub pull-request -o
   again = !git a -u . && git fixup && git push
-  quick-fix = !git a -u && git amend --no-edit && git yolo
+  quick-fix = !git it && git a -u && git amend --no-edit && git yolo
   up = !git it && git stash && git rbm && git stash pop
   close-pr = !cb=$(git rev-parse --abbrev-ref HEAD) && git com && git pull && git branch -D $cb
   set-upstream = !cb=$(git rev-parse --abbrev-ref HEAD) && git branch --set-upstream-to=origin/$cb $cb
