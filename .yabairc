@@ -41,7 +41,7 @@ yabai -m config right_padding                0
 yabai -m config window_gap                   5
 
 # window rules
-yabai -m rule --add app="^(Finder|System Preferences|Installer)$" manage=off
+yabai -m rule --add app="^(Finder|System Preferences|Installer|Calculator)$" manage=off
 yabai -m rule --add app="^iTerm2$" manage=off #topmost=on sticky=on
 yabai -m rule --add app="^PyCharm$" title="Welcome to PyCharm" manage=off
 
