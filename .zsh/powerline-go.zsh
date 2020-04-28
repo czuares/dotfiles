@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-VERSION="1.13.0"
+VERSION="1.17.0"
 BIN_PATH="$HOME/.local/bin/powerline-go"
 
 if [[ ! -f "$BIN_PATH" ]]; then
