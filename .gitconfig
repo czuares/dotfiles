@@ -52,6 +52,7 @@
   psh = push -u
   ready = !git rebase -i --autosquash master
   pr = !git push -u && hub pull-request -o
+  draft-pr = !git pr --draft
   again = !git a -u . && git fixup && git push
   quick-fix = !git it && git a -u && git amend --no-edit && git yolo
   up = !git it && git stash && git rbm && git stash pop
