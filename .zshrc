@@ -5,7 +5,7 @@
 source ~/.zsh/plugins-pre.zsh
 source ~/.zsh/plugins.zsh
 source ~/.zsh/powerline-go.zsh
-# source ~/.zsh/histdb.zsh
+source ~/.zsh/histdb.zsh
 
 # zstyle ':completion:*' menu select
 # zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
@@ -50,4 +50,5 @@ source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
 
 # compinit
+
 # zprof

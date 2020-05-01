@@ -8,8 +8,8 @@ export VISUAL=$EDITOR
 export PAGER=less
 
 export PROJECT_HOME="$HOME/proj"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/go/bin"
+path=("$HOME/.local/bin" "$HOME/go/bin" $path)
+typeset -U path
 
 alias vi=vim
 alias d=docker

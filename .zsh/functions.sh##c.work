@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# shellcheck source=k8scontext.zsh
 source ~/.zsh/k8scontext.zsh
 
 export PACKAGECLOUD_TOKEN=$(<~/private/keys/token/packagecloud-token)

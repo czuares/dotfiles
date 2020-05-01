@@ -1,17 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
+# shellcheck source=functions.sh##c.work
 source ~/.zsh/functions.sh##c.work
 
 # source virtualenvwrapper.sh
-
-# source pyenv
-if command -v pyenv &>/dev/null; then
-  eval "$(pyenv init -)"
-  pyenv virtualenvwrapper
-fi
+# Done in ~/.zlogin
 
 # source <(kubectl completion zsh)
-
 # source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh
 
