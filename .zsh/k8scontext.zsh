@@ -43,7 +43,7 @@ function k8s_color() {
 }
 
 function complete_callback() {
-  async_stop_worker worker
+  async_stop_worker k8s_worker
 }
 
 function k8s_color_async() {
