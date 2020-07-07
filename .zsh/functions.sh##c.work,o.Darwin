@@ -10,6 +10,10 @@ source ~/.zsh/functions.sh##c.work
 # source <(stern --completion=zsh)
 # source ~/.local/bin/aws_zsh_completer.sh
 
+if command -v direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
 # Setup GPG
 # GPG_TTY=$(tty)
 # export GPG_TTY
@@ -33,7 +37,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # Source chtf
 if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   source "/usr/local/share/chtf/chtf.sh"
-  chtf 0.12.24
+  chtf 0.12.26
 fi
 
 brew() {
