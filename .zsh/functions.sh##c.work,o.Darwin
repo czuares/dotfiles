@@ -3,6 +3,9 @@
 # shellcheck source=functions.sh##c.work
 source ~/.zsh/functions.sh##c.work
 
+# shellcheck source=functions.sh##o.Darwin
+source ~/.zsh/functions.sh##o.Darwin
+
 # source virtualenvwrapper.sh
 # Done in ~/.zlogin
 
@@ -39,30 +42,3 @@ if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
   source "/usr/local/share/chtf/chtf.sh"
   chtf 0.12.26
 fi
-
-brew() {
-  local dump=false;
-  if [[ $# -gt 0 ]]; then
-    case "$1" in
-      *install|*tap)
-        dump=true;
-        ;;
-      cask)
-        if [[ $# -gt 2 ]]; then
-          case "$2" in
-            *install)
-              dump=true;
-              ;;
-          esac
-        fi
-        ;;
-    esac
-  fi
-  command brew "$@"
-
-  if $dump; then
-    echo "Updating Brewfile"
-    command brew bundle dump --force --file="$HOME/.config/brew/Brewfile"
-  fi
-}
-

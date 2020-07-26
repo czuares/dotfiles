@@ -1,58 +1,68 @@
 #!/bin/bash
 
-system_type=$(uname -s)
+setup() {
 
-mkdir -p "$HOME/.local/bin"
+  system_type=$(uname -s)
 
-if command -v vim >/dev/null 2>&1; then
+  LOCAL_BIN="$HOME/.local/bin"
+  mkdir -p "$LOCAL_BIN"
+
+  read -rp "ATTENTION: What kind of devices is this? (local.class) "
+  yadm config local.class "$REPLY"
+  yadm alt
+
+  if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
     vim +'PlugInstall --sync' +qa
-fi
-
-if command -v pipx >/dev/null 2>&1; then
-  echo "Installing pipx"
-  python3 -m pip install --user pipx
-fi
-
-if [[ "$system_type" =~ "Darwin" ]]; then
-
-  # install homebrew if it's missing
-  if ! command -v brew >/dev/null 2>&1; then
-      echo "Installing homebrew"
-      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  if [ -f "$HOME/.Brewfile" ]; then
-      echo "Updating homebrew bundle"
-      brew bundle --global
-      brew link --force gettext
-  fi
-
-  if [ -d "$HOME/.config/iterm2" ]; then
-      echo "Setting iTerm preference folder"
-      defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
-  fi
-
-  if command -v mpm >/dev/null 2>&1; then
-    echo "Installing mpm"
-    pipx install meta-package-manager
-    ln -s "$(command -v mpm)" /usr/local/sbin/mpm
+  if command -v pipx >/dev/null 2>&1; then
+    echo "Installing pipx"
+    python3 -m pip install --user pipx
   fi
 
   if command -v kubens >/dev/null 2>&1; then
-    mkdir -p ~/workspace
-    pushd ~/workspace || return 1
-    git clone git@github.com:aca/go-kubectx.git
-    pushd go-kubectx || return 1
-    go install ./cmd/kubens
-    go install ./cmd/kubectx
-    popd || return 1
-    popd || return 1
+    pushd "$(mktemp -d)" || true
+    local version="0.1.0"
+    curl -sfLo archive.tar.gz "https://github.com/aca/go-kubectx/releases/download/v${version}/go-kubectx_${version}_${system_type}_x86_64.tar.gz"
+    tar -xf archive.tar.gz
+    mv kubectx kubens "$LOCAL_BIN/"
+    popd || true
   fi
 
-elif [[ "$system_type" == "Linux" ]]; then
-  if ! command -v diff-so-fancy 2>&1; then
-    curl -L "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy" > ~/.local/bin/diff-so-fancy
-    chmod +x ~/.local/bin/diff-so-fancy
+  if [[ "$system_type" =~ "Darwin" ]]; then
+
+    # install homebrew if it's missing
+    if ! command -v brew >/dev/null 2>&1; then
+      echo "Installing homebrew"
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    if [[ -L "$HOME/.config/brew/Brewfile" ]]; then
+      ln -nfs "$HOME/.config/brew/Brewfile" "$HOME/.Brewfile"
+      echo "Updating homebrew bundle"
+      brew bundle --global
+      brew link --force gettext
+    fi
+
+    if [ -d "$HOME/.config/iterm2" ]; then
+      echo "Setting iTerm preference folder"
+      defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
+    fi
+
+    if command -v mpm >/dev/null 2>&1; then
+      echo "Installing mpm"
+      pipx install meta-package-manager
+      ln -s "$(command -v mpm)" /usr/local/sbin/mpm
+    fi
   fi
-fi
+
+  if [[ "$system_type" == "Linux" ]]; then
+    if ! command -v diff-so-fancy 2>&1; then
+      curl -L "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy" > "$LOCAL_BIN/diff-so-fancy"
+      chmod +x "$LOCAL_BIN/diff-so-fancy"
+    fi
+  fi
+}
+
+setup

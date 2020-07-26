@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
+# shellcheck source=functions.sh##o.Darwin
+source ~/.zsh/functions.sh##o.Darwin
+
+# source pyenv
+if command -v pyenv &>/dev/null; then
+  eval "$(pyenv init -)"
+  pyenv virtualenvwrapper
+fi
+
 # Setup GPG
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
 eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x11BFC2D2BD6087B6)
 
 function pf-usb(){
-   # screen /dev/tty.usbserial 115200 # apu
-   screen /dev/tty.SLAB_USBtoUART 115200 # netgate
- }
+  # screen /dev/tty.usbserial 115200 # apu
+  screen /dev/tty.SLAB_USBtoUART 115200 # netgate
+}

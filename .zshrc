@@ -52,3 +52,4 @@ source ~/.zsh/functions.sh
 # compinit
 
 # zprof
+eval "$(direnv hook zsh)"
