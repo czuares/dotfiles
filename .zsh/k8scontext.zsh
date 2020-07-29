@@ -2,7 +2,7 @@
 
 PROD_PROFILE_NAME="prod"
 PROD_TMUX_BACKGROUND_COLOR="#990808"
-PROD_ITERM_PROFILE="ProdK8s"
+# PROD_ITERM_PROFILE="ProdK8s"
 
 function k8s_color() {
   local k8scontext="$(kubectl config current-context 2>/dev/null)"
@@ -21,25 +21,28 @@ function k8s_color() {
         ;;
     esac
 
-    local activePanes=($(tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}'))
-    for p in "${activePanes[@]}"; do
-      tmux select-pane -P "bg=$color" -t "$p"
-    done
+    current_pane=$(tmux display -pt "${TMUX_PANE:?}" '#{session_name}:#{window_index}.#{pane_index}')
+    tmux select-pane -P "bg=$color" -t "$current_pane"
+
+    # local activePanes=($(tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}'))
+    # for p in "${activePanes[@]}"; do
+    #   tmux select-pane -P "bg=$color" -t "$p"
+    # done
   fi
 
-  if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
-    local profile;
-    case "$k8scontext" in
-      "$PROD_PROFILE_NAME")
-        profile="$PROD_ITERM_PROFILE"
-        ;;
-      *)
-        profile="Default"
-        ;;
-    esac
+  # if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
+  #   local profile;
+  #   case "$k8scontext" in
+  #     "$PROD_PROFILE_NAME")
+  #       profile="$PROD_ITERM_PROFILE"
+  #       ;;
+  #     *)
+  #       profile="Default"
+  #       ;;
+  #   esac
 
-    echo -ne "\033]50;SetProfile=$profile\a"
-  fi
+  #   echo -ne "\033]50;SetProfile=$profile\a"
+  # fi
 }
 
 function complete_callback() {
