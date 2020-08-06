@@ -12,11 +12,12 @@
   it = fetch --all
   cp = cherry-pick
   co = checkout
-  cov = !git checkout $(git choose-branch)
-  corv = !git checkout $(git choose-remote-branch)
+  cov = !git checkout "$(git choose-branch)"
+  corv = !git checkout "$(git choose-remote-branch)"
   choose-branch = !git --no-pager branch -vv | fzf +m | sed 's/* //' | awk '{print $1}' # branch chooser helper
-  choose-remote-branch = !git branch -a | fzf +m | sed 's/* //' | awk '{print $1}' # branch chooser helper
+  choose-remote-branch = !git branch -a | fzf +m | sed 's/* //' | sed "s#remotes/$(git origin)/##" | awk '{print $1}' # branch chooser helper
   delbranch = !git branch -D $(git choose-branch)
+  origin = !git remote show
   ; cov = "!f() { local branch=$(git --no-pager branch -vv | fzf +m | sed 's/* //' | awk '{print $1}') && git checkout $branch; }; f"
   ; cob = checkout -b
   com = !git checkout $(git hb)
