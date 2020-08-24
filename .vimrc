@@ -70,6 +70,9 @@ Plug 'rbong/vim-flog'
 Plug 'goerz/jupytext.vim'
 call plug#end()
 
+" Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'dylnmc/novum.vim'
+" Plug 'sainnhe/edge'
 " Plug 'majutsushi/tagbar'
 " Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 " Plug 'tfnico/vim-gradle'

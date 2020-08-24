@@ -101,3 +101,20 @@ kdebug() {
     -it --rm --image=nicolaka/netshoot \
     debug bash
 }
+
+awsv2() {
+  # docker pull amazon/aws-cli:latest &>/dev/null
+  docker run --rm -it -v ~/.aws:/root/.aws \
+    -e AWS_PROFILE="$AWS_PROFILE" \
+    -v $(pwd):/aws amazon/aws-cli -- $@
+}
+
+ksuspendcron() {
+  local name="${1?CronJob name expected}"
+  kubectl patch cronjobs "$name" -p "{\"spec\" : {\"suspend\" : true }}"
+}
+
+kresumecron() {
+  local name="${1?CronJob name expected}"
+  kubectl patch cronjobs "$name" -p "{\"spec\" : {\"suspend\" : false }}"
+}

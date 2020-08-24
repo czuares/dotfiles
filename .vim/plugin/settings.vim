@@ -44,7 +44,9 @@ set undoreload=10000        " number of lines to save for undo
 " Colorscheme
 set background=dark
 " colorscheme one
-" colorscheme orbital
+" colorscheme onedark
+" colorscheme gotham256
+" colorscheme PaperColor
 try
   colorscheme hybrid_material
 catch
