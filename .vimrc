@@ -68,6 +68,7 @@ Plug 'nvie/vim-flake8'
 Plug 'liuchengxu/vim-clap'
 Plug 'rbong/vim-flog'
 Plug 'goerz/jupytext.vim'
+Plug 'burnettk/vim-jenkins'
 call plug#end()
 
 " Plug 'rafi/awesome-vim-colorschemes'

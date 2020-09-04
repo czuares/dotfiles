@@ -5,6 +5,8 @@ let g:polyglot_disabled = ['markdown'] " let other plugin do it
 let g:airline_theme='minimalist'
 
 " NERDTree
+" TODO: Undo workaround when resolved https://github.com/ryanoasis/vim-devicons/pull/355
+let g:NERDTreeGitStatusLogLevel = 3
 " let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 25
 " let g:NERDTreeCascadeOpenSingleChildDir = 1
