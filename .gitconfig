@@ -89,5 +89,3 @@
   user = czuares
 ; [diff "sopsdiffer"]
 ; 	textconv = sops -d
-[diff "sopsdiffer"]
-	textconv = sops -d

@@ -11,6 +11,8 @@ hyper - p : \
     /usr/bin/env ANNOUNCE=true ~/private/scripts/okta-pass;
 hyper - o : \
     /usr/bin/env ANNOUNCE=true ~/private/scripts/okta-token;
+hyper - k : \
+    /usr/bin/env ANNOUNCE=true ~/private/scripts/oath-token;
 
 # focus window
 alt - h : yabai -m window --focus west
