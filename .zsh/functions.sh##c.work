@@ -83,10 +83,21 @@ kwatch() {
 }
 
 kgetpodsbyhost() {
-  : "${1?Expected host name}"
+  local name
+  if [[ $# -eq 0 ]]; then
+    name=$(mypaste) # provided script
+    if [[ -n "$name" ]]; then
+      >&2 echo "Getting pods for $name"
+    else
+      >&2 echo "Expected hostname"
+      return 2
+    fi
+  else
+    name="${1?Expected hostname}"
+  fi
 
   kubectl get po --all-namespaces \
-    --field-selector=spec.nodeName="${1}"
+    --field-selector=spec.nodeName="${name}"
 }
 
 k-dump-running-pods-host() {
