@@ -70,6 +70,7 @@ Plug 'rbong/vim-flog'
 Plug 'goerz/jupytext.vim'
 Plug 'burnettk/vim-jenkins'
 Plug 'christianrondeau/vim-base64'
+Plug 'srcery-colors/srcery-vim'
 call plug#end()
 
 " Plug 'rafi/awesome-vim-colorschemes'

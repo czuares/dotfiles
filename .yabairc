@@ -40,14 +40,9 @@ yabai -m config left_padding                 0
 yabai -m config right_padding                0
 yabai -m config window_gap                   5
 
-# window rules
-yabai -m rule --add app="^(Finder|System Preferences|Installer|Calculator)$" manage=off
-yabai -m rule --add app="^iTerm2$" manage=off #topmost=on sticky=on
-yabai -m rule --add app="^PyCharm$" title="Welcome to PyCharm" manage=off
-
-rules="/Users/czuares/private/scripts/yabai-rules"
+rules="$HOME/private/scripts/yabai-rules"
 bash -c "$rules"
 yabai -m signal --add label=display_removed event=display_removed action="$rules"
 yabai -m signal --add label=display_added event=display_added action="$rules"
 
-echo "yabai configuration loaded.."
+echo "yabai configuration loaded."

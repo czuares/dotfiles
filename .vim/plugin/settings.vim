@@ -47,6 +47,7 @@ set background=dark
 " colorscheme onedark
 " colorscheme gotham256
 " colorscheme PaperColor
+" colorscheme srcery
 try
   colorscheme hybrid_material
 catch
