@@ -36,9 +36,3 @@ export GPG_TTY=$(tty)
 export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # eval $(keychain --eval --quiet --agents gpg,ssh id_rsa 0x97756AE7B8A4FDA9)
-
-# Source chtf
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-  source "/usr/local/share/chtf/chtf.sh"
-  chtf 0.12.28
-fi
