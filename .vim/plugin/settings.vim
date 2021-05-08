@@ -41,6 +41,11 @@ set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
+" set Vim-specific sequences for RGB colors
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " Colorscheme
 set background=dark
 " colorscheme one
@@ -49,7 +54,8 @@ set background=dark
 " colorscheme PaperColor
 " colorscheme srcery
 try
-  colorscheme hybrid_material
+  " colorscheme hybrid_material
+  colorscheme nord
 catch
   " ignore
 endtry

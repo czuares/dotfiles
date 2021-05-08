@@ -2,11 +2,13 @@
 " let g:polyglot_disabled = ['markdown'] " let other plugin do it
 
 " Airline
-let g:airline_theme='minimalist'
+let g:airline_theme='nord'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline#extensions#clock#format = '%I:%M %p'
+" let g:airline#extensions#clock#updatetime = 60000
 
 " NERDTree
-" TODO: Undo workaround when resolved https://github.com/ryanoasis/vim-devicons/pull/355
-let g:NERDTreeGitStatusLogLevel = 3
 " let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 25
 " let g:NERDTreeCascadeOpenSingleChildDir = 1
@@ -90,11 +92,6 @@ let g:easyescape_chars = { "j": 1, "k": 1 }
 let g:easyescape_timeout = 100
 cnoremap jk <ESC>
 cnoremap kj <ESC>
-
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-" let g:airline#extensions#clock#format = '%I:%M %p'
-" let g:airline#extensions#clock#updatetime = 60000
 
 " Rainbow
 let g:rainbow_active = 1
