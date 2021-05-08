@@ -17,3 +17,9 @@ function pf-usb(){
   # screen /dev/tty.usbserial 115200 # apu
   screen /dev/tty.SLAB_USBtoUART 115200 # netgate
 }
+
+# Source chtf
+if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+  source "/usr/local/share/chtf/chtf.sh"
+  chtf 0.12.29
+fi

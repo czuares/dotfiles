@@ -71,6 +71,7 @@ Plug 'goerz/jupytext.vim'
 Plug 'burnettk/vim-jenkins'
 Plug 'christianrondeau/vim-base64'
 Plug 'srcery-colors/srcery-vim'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Plug 'rafi/awesome-vim-colorschemes'
