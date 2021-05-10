@@ -3,8 +3,8 @@
 
 " Airline
 let g:airline_theme='nord'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " let g:airline#extensions#clock#format = '%I:%M %p'
 " let g:airline#extensions#clock#updatetime = 60000
 

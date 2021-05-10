@@ -49,6 +49,9 @@ source ~/.zsh/env-core.zsh
 source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
 
+# nix
+[ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
+
 # compinit
 
 # zprof
