@@ -108,9 +108,7 @@ k-dump-running-pods-host() {
 }
 
 kdebug() {
-  kubectl run --generator=run-pod/v1 \
-    -it --rm --image=nicolaka/netshoot \
-    debug bash
+  kubectl run -it --rm --image=nicolaka/netshoot debug -- bash
 }
 
 awsv2() {

@@ -41,8 +41,10 @@ set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-" set Vim-specific sequences for RGB colors
+" Color fixes
 set termguicolors
+" https://github.com/vim/vim/issues/993
+" set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 

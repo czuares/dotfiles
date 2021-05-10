@@ -12,6 +12,9 @@ path=("$HOME/.local/bin" "$HOME/go/bin" $path)
 typeset -U path
 
 alias vi=vim
+# if command -v nvim >/dev/null; then
+#   alias vim=nvim
+# fi
 alias d=docker
 alias dc=docker-compose
 alias proj="cd $PROJECT_HOME"
