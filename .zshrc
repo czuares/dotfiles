@@ -44,13 +44,16 @@ setopt hist_verify
 # source /usr/local/etc/profile.d/z.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Source asdf
+[ -d ~/.asdf ] && source ~/.asdf/asdf.sh
+
 source ~/.zsh/functions-core.sh
 source ~/.zsh/env-core.zsh
 source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
 
 # nix
-[ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
+# [ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
 
 # compinit
 
