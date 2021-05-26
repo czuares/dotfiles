@@ -5,7 +5,7 @@ source ~/.zsh/functions.sh##o.Darwin
 
 # source pyenv
 if command -v pyenv &>/dev/null; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init)"
   pyenv virtualenvwrapper
 fi
 

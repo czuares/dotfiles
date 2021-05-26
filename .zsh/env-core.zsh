@@ -16,7 +16,7 @@ alias vi=vim
 #   alias vim=nvim
 # fi
 alias d=docker
-alias dc=docker-compose
+alias dc="docker compose"
 alias proj="cd $PROJECT_HOME"
 
 alias ..="cd .."
