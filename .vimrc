@@ -72,6 +72,7 @@ Plug 'christianrondeau/vim-base64'
 Plug 'srcery-colors/srcery-vim'
 call plug#end()
 
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 " Plug 'JamshedVesuna/vim-markdown-preview'
 " Plug 'andrewradev/linediff.vim'
 " Plug 'andymass/vim-tradewinds'
