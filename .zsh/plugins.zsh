@@ -1,25 +1,78 @@
 #!/usr/bin/env zsh
 
-# Source zplug
-export ZPLUG_HOME=$HOME/.zplug
-if [[ ! -f $ZPLUG_HOME/init.zsh ]]; then
-  rm -rf "$ZPLUG_HOME"
-  echo "Updating zplug"
-  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+export ZINIT_HOME=$HOME/.zinit
+if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
+  rm -rf "$ZINIT_HOME"
+  echo "Installing zinit"
+  git clone https://github.com/zdharma/zinit.git $ZINIT_HOME
 fi
 
-source $ZPLUG_HOME/init.zsh
+source $ZINIT_HOME/zinit.zsh
 
-zplug "zplug/zplug"
-zplug "plugins/z",  from:oh-my-zsh
-zplug "mafredri/zsh-async", from:github
-zplug "larkery/zsh-histdb", from:github, at:d831a3a222e138ecdd65c225779f49bca52813f8
-zplug "zsh-users/zsh-autosuggestions", at:develop
+zinit wait lucid light-mode for \
+  atinit="zicompinit; zicdreplay" \
+      zdharma/history-search-multi-word \
+  atload="_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+      zdharma/fast-syntax-highlighting \
+  blockf atpull='zinit creinstall -q .' \
+      zsh-users/zsh-completions
+
+zinit light mafredri/zsh-async
+zinit light larkery/zsh-histdb
+
+zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/z/z.sh
+# zinit ice mv="z.sh -> z" pick="z" as"program"
+# zinit snippet https://github.com/rupa/z/blob/master/z.sh
+
+bindkey '^ ' autosuggest-accept
+# zinit light-mode trackbinds bindmap='!"^ " -> autosuggest-accept' for zdharma/fast-syntax-highlighting
+# zinit bindmap='!"^ " -> autosuggest-accept' for zdharma/fast-syntax-highlighting
+
+# zinit ice blockf atpull'zinit creinstall -q .'
+# zinit light zsh-users/zsh-completions
+
+# autoload compinit
+# compinit
+
+# zinit light zdharma/history-search-multi-word
+# zinit light zdharma/fast-syntax-highlighting
+# # zinit light zsh-users/zsh-syntax-highlighting
+# zinit light zsh-users/zsh-autosuggestions
+
+# zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+#     atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+#     pick"direnv" src="zhook.zsh" for \
+#         direnv/direnv
+
+
+
+
+####################################################################
+# Begin zplug
+#
+# Source zplug
+# export ZPLUG_HOME=$HOME/.zplug
+# if [[ ! -f $ZPLUG_HOME/init.zsh ]]; then
+#   rm -rf "$ZPLUG_HOME"
+#   echo "Updating zplug"
+#   git clone https://github.com/zplug/zplug $ZPLUG_HOME
+# fi
+
+# source $ZPLUG_HOME/init.zsh
+
+# zplug "zplug/zplug"
+# zplug "plugins/z",  from:oh-my-zsh
+# zplug "mafredri/zsh-async", from:github
+# zplug "larkery/zsh-histdb", from:github, at:d831a3a222e138ecdd65c225779f49bca52813f8
+# zplug "zsh-users/zsh-autosuggestions", at:develop
+# zplug "zdharma/history-search-multi-word"
+# zplug "zsh-users/zsh-syntax-highlighting", defer:3
+#
+# zplug "softmoth/zsh-vim-mode", from:github
 # zplug "zsh-users/zsh-completions"
-zplug "zdharma/history-search-multi-word"
 # zplug "plugins/git",  from:oh-my-zsh
 # zplug "wfxr/forgit"
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # zplug "plugins/virtualenvwrapper",  from:oh-my-zsh
 
 # zplug "plugins/aws",  from:oh-my-zsh
@@ -47,39 +100,14 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # setopt prompt_subst # Make sure prompt is able to be generated properly.
 # zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
 
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-  echo; zplug install
-fi
 
-zplug load
 
-# GEOMETRY_PROMPT_PLUGINS=(virtualenv kube exec_time git)
+# # Install packages that have not been installed yet
+# if ! zplug check --verbose; then
+#   echo; zplug install
+# fi
 
-# Alien
-# MODULES=(git ssh python time)
-
-# POWERLEVEL9K_MODE='nerdfont-complete'
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv aws kubecontext)
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-# POWERLEVEL9K_SHORTEN_DELIMITER=''
-# POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_BATTERY_VERBOSE=false
-# POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
-# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{014}╭%F{cyan}"
-# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
-
-# # Bulletrain settings
-# BULLETTRAIN_PROMPT_CHAR="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f"
-# BULLETTRAIN_KCTX_KCONFIG=$HOME/.kube/config
-# BULLETTRAIN_AWS_FG=white
-# BULLETTRAIN_STATUS_EXIT_SHOW=true
-# BULLETTRAIN_PROMPT_ORDER=(
-# dir
-# git
-# virtualenv
-# kctx
-# aws
-# )
+# zplug load
+#
+# End zplug
+####################################################################

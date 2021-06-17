@@ -3,7 +3,7 @@
 # shellcheck source=k8scontext.zsh
 source ~/.zsh/k8scontext.zsh
 
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 
 export PACKAGECLOUD_TOKEN=$(<~/private/keys/token/packagecloud-token)
 export HOMEBREW_GITHUB_API_TOKEN=$(<~/private/keys/token/homebrew-token)

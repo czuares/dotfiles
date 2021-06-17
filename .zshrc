@@ -7,12 +7,7 @@ source ~/.zsh/plugins.zsh
 source ~/.zsh/powerline-go.zsh
 source ~/.zsh/histdb.zsh
 
-# zstyle ':completion:*' menu select
-# zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-# zstyle ':zplug:tag' depth 1
-
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
-bindkey '^ ' autosuggest-accept
 
 ## ESC + v to edit command
 autoload edit-command-line
@@ -51,10 +46,5 @@ source ~/.zsh/functions-core.sh
 source ~/.zsh/env-core.zsh
 source ~/.zsh/env.zsh
 source ~/.zsh/functions.sh
-
-# nix
-# [ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
-
-# compinit
 
 # zprof
