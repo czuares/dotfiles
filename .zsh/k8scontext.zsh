@@ -4,18 +4,15 @@ PROD_PROFILE_NAME="prod"
 PROD_TMUX_BACKGROUND_COLOR="#990808"
 
 function k8s_color() {
-  if [[ -z $KUBECONFIG ]]; then
-    return 0
-  fi
+  local K8S_CONTEXT=""
 
-  local k8scontext="$(kubectl config current-context 2>/dev/null)"
-  if [[ $? -ne 0 ]]; then
+  if [[ -n $KUBECONFIG ]] && ! K8S_CONTEXT="$(kubectl config current-context 2>/dev/null)"; then
     return 0;
   fi
 
   if [[ -n "$TMUX" ]]; then
     local color;
-    case "$k8scontext" in
+    case "$K8S_CONTEXT" in
       "$PROD_PROFILE_NAME")
         color="$PROD_TMUX_BACKGROUND_COLOR"
         ;;
